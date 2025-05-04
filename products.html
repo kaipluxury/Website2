@@ -4,145 +4,13 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Products - GrandX $tore</title>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
-  <style>
-    body {
-      margin: 0;
-      font-family: 'Inter', sans-serif;
-      background-color: #0b0b0f;
-      color: #f1f1f1;
-    }
-
-    .navbar {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 18px 32px;
-      background-color: #0e0e14;
-      position: sticky;
-      top: 0;
-      z-index: 100;
-      box-shadow: 0 2px 6px rgba(0,0,0,0.2);
-    }
-
-    .logo {
-      height: 40px;
-      border-radius: 8px;
-    }
-
-    .nav-links {
-      display: flex;
-      list-style: none;
-      gap: 28px;
-    }
-
-    .nav-links a {
-      text-decoration: none;
-      color: #f1f1f1;
-      font-weight: 500;
-      font-size: 0.95rem;
-      position: relative;
-      transition: color 0.3s;
-    }
-
-    .nav-links a::after {
-      content: "";
-      position: absolute;
-      width: 0%;
-      height: 2px;
-      bottom: -4px;
-      left: 0;
-      background-color: #7c3aed;
-      transition: width 0.3s ease;
-    }
-
-    .nav-links a:hover {
-      color: #7c3aed;
-    }
-
-    .nav-links a:hover::after {
-      width: 100%;
-    }
-
-    h1 {
-      text-align: center;
-      margin: 40px 0 10px;
-      font-size: 2rem;
-      color: #ffffff;
-    }
-
-    .products {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 28px;
-      padding: 30px 20px 60px;
-    }
-
-    .product {
-      background: #13131a;
-      border-radius: 12px;
-      padding: 20px;
-      width: 250px;
-      text-align: center;
-      box-shadow: 0 0 6px rgba(124, 58, 237, 0.15);
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-    }
-
-    .product:hover {
-      transform: translateY(-4px);
-      box-shadow: 0 0 16px rgba(124, 58, 237, 0.25);
-    }
-
-    .product img {
-      width: 100px;
-      height: 100px;
-      object-fit: contain;
-      border-radius: 10px;
-      margin-bottom: 12px;
-    }
-
-    .product h2 {
-      font-size: 1.1rem;
-      margin-bottom: 8px;
-      color: #fff;
-    }
-
-    .product p {
-      font-size: 0.95rem;
-      color: #bbb;
-      margin-bottom: 16px;
-    }
-
-    .buy-btn {
-      padding: 10px 20px;
-      background-color: #7c3aed;
-      color: white;
-      text-decoration: none;
-      border-radius: 8px;
-      font-weight: 600;
-      font-size: 0.95rem;
-      transition: background-color 0.3s ease;
-      display: inline-block;
-    }
-
-    .buy-btn:hover {
-      background-color: #6d28d9;
-    }
-
-    footer {
-      text-align: center;
-      padding: 30px;
-      font-size: 0.85rem;
-      color: #888;
-    }
-  </style>
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
+  <canvas id="particles"></canvas>
 
-  <!-- Navbar -->
   <nav class="navbar">
-    <img src="IMG_1096.jpeg" alt="Logo" class="logo" />
+    <img src="IMG_1096.jpeg" alt="GrandX Logo" class="nav-logo">
     <ul class="nav-links">
       <li><a href="index.html">Home</a></li>
       <li><a href="products.html">Products</a></li>
@@ -151,50 +19,73 @@
     </ul>
   </nav>
 
-  <h1>Explore Our Products</h1>
+  <header class="hero">
+    <h1><span class="glow-pink">Our</span> <span class="glow-white">Products</span></h1>
+    <p class="quote">Powerful, affordable and built to perform.</p>
+  </header>
 
-  <div class="products">
-    <div class="product">
-      <img src="IMG_1271.jpeg" alt="Trigger Bot" />
+  <section class="product-grid">
+    <!-- Repeat this div for each product -->
+    <div class="product-card">
+      <img src="IMG_1271.jpeg" alt="Trigger Bot">
       <h2>Trigger Bot (30 Days)</h2>
       <p>₹1000 / $12</p>
-      <a href="payment.html" class="buy-btn">Buy Now</a>
+      <a href="payment.html" class="btn">Buy</a>
     </div>
-    <div class="product">
-      <img src="IMG_1172.jpeg" alt="1337 Cheat" />
-      <h2>1337 Cheat (30 Days)</h2>
-      <p>₹950 / $11.5</p>
-      <a href="payment.html" class="buy-btn">Buy Now</a>
-    </div>
-    <div class="product">
-      <img src="IMG_1273.gif" alt="Custom Bot" />
-      <h2>Custom Discord Bot</h2>
-      <p>₹400 / $5</p>
-      <a href="payment.html" class="buy-btn">Buy Now</a>
-    </div>
-    <div class="product">
-      <img src="IMG_1272.jpeg" alt="Ban Evade" />
-      <h2>GrandRP BAN EVADE</h2>
-      <p>₹400 / $5</p>
-      <a href="payment.html" class="buy-btn">Buy Now</a>
-    </div>
-    <div class="product">
-      <img src="IMG_1274.png" alt="Money Method" />
-      <h2>GrandRP Money Method</h2>
-      <p>₹2000 / $23</p>
-      <a href="payment.html" class="buy-btn">Buy Now</a>
-    </div>
-    <div class="product">
-      <img src="IMG_1170.png" alt="Admin Scripts" />
-      <h2>Leader/Admin Scripts</h2>
-      <p>₹300 / $4</p>
-      <a href="payment.html" class="buy-btn">Buy Now</a>
-    </div>
-  </div>
+    <!-- ... other products ... -->
+  </section>
 
-  <footer>
-    <p>© 2025 GrandX $tore. All rights reserved.</p>
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="footer-content">
+      <div class="footer-branding">
+        <p><strong>GrandX $tore</strong></p>
+        <p>© 2025 GrandX $tore. All rights reserved.</p>
+      </div>
+      <div class="footer-links">
+        <h3>Navigation</h3>
+        <a href="index.html">Home</a>
+        <a href="products.html">Products</a>
+        <a href="payment.html">Payment</a>
+        <a href="tos.html">TOS</a>
+      </div>
+      <div class="footer-socials">
+        <h3>Socials</h3>
+        <a href="https://discord.gg/Ft629G5RZE">Discord</a>
+        <a href="https://t.me/+dmVBozU2KMRjZWU1">Telegram</a>
+        <a href="https://www.instagram.com/grandxstore">Instagram</a>
+      </div>
+    </div>
   </footer>
 
+  <!-- Background Particles Script -->
+  <script>
+    const canvas = document.getElementById('particles');
+    const ctx = canvas.getContext('2d');
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+    const particles = [];
+
+    for (let i = 0; i < 100; i++) {
+      particles.push({ x: Math.random() * canvas.width, y: Math.random() * canvas.height, r: Math.random() * 1.5 + 0.5, dx: Math.random() - 0.5, dy: Math.random() - 0.5 });
+    }
+
+    function animateParticles() {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      ctx.fillStyle = 'rgba(255, 255, 255, 0.2)';
+      particles.forEach(p => {
+        p.x += p.dx;
+        p.y += p.dy;
+        if (p.x < 0 || p.x > canvas.width) p.dx *= -1;
+        if (p.y < 0 || p.y > canvas.height) p.dy *= -1;
+        ctx.beginPath();
+        ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
+        ctx.fill();
+      });
+      requestAnimationFrame(animateParticles);
+    }
+
+    animateParticles();
+  </script>
 </body>
 </html>
