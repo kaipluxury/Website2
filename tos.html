@@ -5,8 +5,85 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Terms of Service - GrandX $tore</title>
   <link rel="stylesheet" href="style.css" />
+  <style>
+    .tos-container {
+      max-width: 800px;
+      margin: 40px auto;
+      background-color: #0a0a0a;
+      padding: 30px;
+      border-radius: 12px;
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      box-shadow: 0 0 20px rgba(255, 0, 128, 0.1);
+      text-align: left;
+      animation: fadeIn 1s ease;
+    }
+
+    .tos-container h1 {
+      text-align: center;
+      margin-bottom: 30px;
+      font-size: 2.2rem;
+      background: linear-gradient(to right, #ff0066, #a600ff);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      animation: fadeInDown 1s ease;
+    }
+
+    .tos-section {
+      margin-bottom: 30px;
+      opacity: 0;
+      transform: translateY(30px);
+      animation: fadeUp 1s forwards;
+    }
+
+    .tos-section:nth-child(2) { animation-delay: 0.2s; }
+    .tos-section:nth-child(3) { animation-delay: 0.4s; }
+    .tos-section:nth-child(4) { animation-delay: 0.6s; }
+    .tos-section:nth-child(5) { animation-delay: 0.8s; }
+
+    .tos-section h2 {
+      color: #ff33aa;
+      margin-bottom: 10px;
+      font-size: 1.3rem;
+    }
+
+    .tos-section ul {
+      padding-left: 20px;
+      color: #ccc;
+      line-height: 1.6;
+    }
+
+    .tos-section p {
+      color: #ccc;
+      line-height: 1.6;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+
+    @keyframes fadeInDown {
+      0% { opacity: 0; transform: translateY(-20px); }
+      100% { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes fadeUp {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    footer {
+      margin-top: 60px;
+      font-size: 0.9rem;
+      color: #999;
+      text-align: center;
+    }
+  </style>
 </head>
 <body>
+  <!-- Navbar -->
   <nav class="navbar">
     <img src="logo.png" alt="GrandX Logo" class="logo" />
     <ul class="nav-links">
@@ -17,45 +94,47 @@
     </ul>
   </nav>
 
-  <div class="container">
+  <!-- TOS Content -->
+  <div class="tos-container">
     <h1>Terms of Service</h1>
 
-    <section class="tos-section">
-      <h2>🛍️ | Order Info</h2>
+    <div class="tos-section">
+      <h2>🛍️ Order Info</h2>
       <ul>
-        <li>Items may be pre-ordered if stock isn’t available.</li>
-        <li>Estimated time: ⏳ 5 mins – few hours.</li>
-        <li>In case of delay, a small gift may be given.</li>
-        <li>Payment is required first.</li>
+        <li>Products may be pre-ordered if out of stock.</li>
+        <li>Delivery time: 5 mins to a few hours.</li>
+        <li>In rare delays, a bonus may be offered.</li>
+        <li>Payment is required before processing.</li>
       </ul>
-    </section>
+    </div>
 
-    <section class="tos-section">
-      <h2>🎫 | Ticket Rules</h2>
+    <div class="tos-section">
+      <h2>🎫 Ticket Rules</h2>
       <ul>
-        <li>Be respectful — rude behavior = ticket closed ❌</li>
-        <li>Do not spam pings or DMs — it won’t help.</li>
-        <li>Only one ticket per issue — duplicates = closed.</li>
-        <li>Most answers are already given — read before asking.</li>
+        <li>Be respectful — rudeness = ticket closed.</li>
+        <li>No spam or repeated DMs.</li>
+        <li>One ticket per issue.</li>
+        <li>Check FAQs before asking.</li>
       </ul>
-    </section>
+    </div>
 
-    <section class="tos-section">
-      <h2>💸 | Refunds & Replacements</h2>
+    <div class="tos-section">
+      <h2>💸 Refunds & Replacements</h2>
       <ul>
-        <li>❌ No refunds for wrong orders or change of mind.</li>
-        <li>✅ Replacements only if it’s our mistake (with clear proof).</li>
-        <li>No valid proof = ❌ no replacement.</li>
+        <li>No refunds for change of mind or wrong product.</li>
+        <li>Replacements only for verified issues (with proof).</li>
+        <li>No valid proof = no replacement.</li>
       </ul>
-    </section>
+    </div>
 
-    <section class="tos-section">
-      <h2>⚠️ | Final Note</h2>
-      <p>Opening a ticket means you accept all rules.</p>
-      <p>✦ Be chill. Follow the process. Enjoy the service.</p>
-    </section>
+    <div class="tos-section">
+      <h2>⚠️ Final Note</h2>
+      <p>By opening a ticket, you agree to these terms.</p>
+      <p>Stay chill. Follow the steps. Enjoy our service.</p>
+    </div>
   </div>
 
+  <!-- Footer -->
   <footer>
     <p>Made by Kai</p>
   </footer>
