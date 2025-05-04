@@ -25,17 +25,49 @@
   </header>
 
   <section class="product-grid">
-    <!-- Repeat this div for each product -->
     <div class="product-card">
       <img src="IMG_1271.jpeg" alt="Trigger Bot">
       <h2>Trigger Bot (30 Days)</h2>
       <p>₹1000 / $12</p>
       <a href="payment.html" class="btn">Buy</a>
     </div>
-    <!-- ... other products ... -->
+
+    <div class="product-card">
+      <img src="IMG_1172.jpeg" alt="1337 Cheats">
+      <h2>1337 Cheat (30 Days)</h2>
+      <p>₹950 / $11.5</p>
+      <a href="payment.html" class="btn">Buy</a>
+    </div>
+
+    <div class="product-card">
+      <img src="IMG_1273.gif" alt="Custom Discord Bot">
+      <h2>Custom Discord Bot</h2>
+      <p>₹400 / $5</p>
+      <a href="payment.html" class="btn">Buy</a>
+    </div>
+
+    <div class="product-card">
+      <img src="IMG_1272.jpeg" alt="GrandRP BAN EVADE">
+      <h2>GrandRP BAN EVADE</h2>
+      <p>₹400 / $5</p>
+      <a href="payment.html" class="btn">Buy</a>
+    </div>
+
+    <div class="product-card">
+      <img src="IMG_1170.png" alt="Admin Scripts">
+      <h2>Leader/Admin Scripts</h2>
+      <p>₹300 / $4</p>
+      <a href="payment.html" class="btn">Buy</a>
+    </div>
+
+    <div class="product-card">
+      <img src="IMG_1274.png" alt="Money Method">
+      <h2>GrandRP Money Method</h2>
+      <p>₹2000 / $23</p>
+      <a href="payment.html" class="btn">Buy</a>
+    </div>
   </section>
 
-  <!-- Footer -->
   <footer class="footer">
     <div class="footer-content">
       <div class="footer-branding">
@@ -58,7 +90,6 @@
     </div>
   </footer>
 
-  <!-- Background Particles Script -->
   <script>
     const canvas = document.getElementById('particles');
     const ctx = canvas.getContext('2d');
@@ -67,7 +98,13 @@
     const particles = [];
 
     for (let i = 0; i < 100; i++) {
-      particles.push({ x: Math.random() * canvas.width, y: Math.random() * canvas.height, r: Math.random() * 1.5 + 0.5, dx: Math.random() - 0.5, dy: Math.random() - 0.5 });
+      particles.push({
+        x: Math.random() * canvas.width,
+        y: Math.random() * canvas.height,
+        r: Math.random() * 1.5 + 0.5,
+        dx: Math.random() - 0.5,
+        dy: Math.random() - 0.5
+      });
     }
 
     function animateParticles() {
