@@ -6,14 +6,13 @@
 
 body {
   font-family: 'Segoe UI', sans-serif;
-  background: linear-gradient(135deg, #1e0033, #0d001a);
+  background-color: #000000;
   color: #f0f0f0;
   text-align: center;
   padding: 20px;
   overflow-x: hidden;
 }
 
-/* Navbar */
 .navbar {
   display: flex;
   align-items: center;
@@ -47,7 +46,6 @@ body {
   color: #ff0066;
 }
 
-/* Layout & Headings */
 .container {
   max-width: 1200px;
   margin: 20px auto;
@@ -68,7 +66,6 @@ h1 {
   margin-bottom: 30px;
 }
 
-/* Glowing CTA Button */
 .btn-glow {
   background: linear-gradient(to right, #7a00cc, #ff0066);
   color: #fff;
@@ -92,7 +89,6 @@ h1 {
   100% { box-shadow: 0 0 20px rgba(255, 0, 128, 0.4); }
 }
 
-/* Products Section */
 .products {
   display: flex;
   flex-wrap: wrap;
@@ -102,10 +98,9 @@ h1 {
 }
 
 .product {
-  background: rgba(255, 255, 255, 0.06);
+  background-color: #0a0a0a;
   border: 1px solid rgba(255, 255, 255, 0.08);
   border-radius: 16px;
-  backdrop-filter: blur(12px);
   padding: 20px;
   width: 250px;
   text-align: center;
@@ -129,7 +124,6 @@ h1 {
   margin-bottom: 10px;
 }
 
-/* Quantity Buttons */
 .quantity-selector {
   display: flex;
   align-items: center;
@@ -164,7 +158,6 @@ h1 {
   pointer-events: none;
 }
 
-/* Buy Button */
 .buy-btn {
   background: linear-gradient(to right, #7a00cc, #ff0066);
   color: #fff;
@@ -181,15 +174,13 @@ h1 {
   box-shadow: 0 0 20px rgba(255, 0, 128, 0.4);
 }
 
-/* Payment Page Section */
 .payment-section {
   margin: 50px auto;
   padding: 30px;
   max-width: 420px;
-  background: rgba(255, 255, 255, 0.06);
+  background-color: #0a0a0a;
   border: 1px solid rgba(255, 255, 255, 0.08);
   border-radius: 16px;
-  backdrop-filter: blur(12px);
   box-shadow: 0 0 25px rgba(128, 0, 255, 0.2);
 }
 
@@ -214,15 +205,13 @@ h1 {
   box-shadow: 0 0 12px rgba(255, 0, 128, 0.3);
   transition: transform 0.3s ease;
 }
-
 .qr:hover {
   transform: scale(1.05);
 }
 
-/* Discord box & Footer */
 .redirect-box {
   margin-top: 40px;
-  background: rgba(255, 255, 255, 0.04);
+  background-color: #0a0a0a;
   padding: 20px;
   border-radius: 12px;
   max-width: 600px;
