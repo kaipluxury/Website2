@@ -9,7 +9,7 @@
     html, body {
       margin: 0;
       padding: 0;
-      background: transparent;
+      background: #000;
       font-family: 'Segoe UI', sans-serif;
       overflow-x: hidden;
       scroll-behavior: smooth;
@@ -23,6 +23,7 @@
       z-index: -1;
       top: 0;
       left: 0;
+      background: #000;
     }
 
     .navbar {
@@ -36,8 +37,21 @@
       z-index: 100;
     }
 
-    .navbar .logo {
+    .logo-container {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .logo {
       height: 40px;
+      border-radius: 8px;
+    }
+
+    .brand-text {
+      font-weight: bold;
+      font-size: 1.2rem;
+      color: #fff;
     }
 
     .nav-links {
@@ -76,24 +90,16 @@
       font-size: 3rem;
       font-weight: bold;
       margin-bottom: 15px;
-      background: linear-gradient(90deg, #ff00cc, #00fff7, #a6ff00, #ff00cc);
-      background-size: 300% 300%;
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      animation: gradientGlow 6s ease infinite, softGlow 2s ease-in-out infinite alternate;
-      text-shadow: 0 0 12px rgba(255, 255, 255, 0.3);
-      transition: all 0.5s ease;
     }
 
-    @keyframes gradientGlow {
-      0% { background-position: 0% 50%; }
-      50% { background-position: 100% 50%; }
-      100% { background-position: 0% 50%; }
+    .grandx {
+      color: #ff00cc;
+      text-shadow: 0 0 10px #ff00cc, 0 0 18px #ff00cc;
     }
 
-    @keyframes softGlow {
-      from { text-shadow: 0 0 10px #fff; }
-      to { text-shadow: 0 0 20px #fff; }
+    .store {
+      color: #fff;
+      text-shadow: 0 0 10px #fff, 0 0 20px #fff;
     }
 
     .hero-desc {
@@ -181,7 +187,10 @@
 
   <!-- Navigation -->
   <nav class="navbar">
-    <img src="logo.png" alt="GrandX Logo" class="logo" />
+    <div class="logo-container">
+      <img src="IMG_1096.jpeg" alt="GrandX Logo" class="logo" />
+      <span class="brand-text">GrandX $tore</span>
+    </div>
     <ul class="nav-links">
       <li><a href="index.html">Home</a></li>
       <li><a href="products.html">Products</a></li>
@@ -196,7 +205,9 @@
       Join over <strong>100+</strong> Customers
     </div>
 
-    <h1 class="hero-title">GrandX $tore</h1>
+    <h1 class="hero-title">
+      <span class="grandx">GrandX</span> <span class="store">$tore</span>
+    </h1>
     <p class="hero-desc">We Don’t Build Mods, We Build Advantage.</p>
 
     <div class="hero-buttons">
