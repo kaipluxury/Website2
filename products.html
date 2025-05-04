@@ -21,7 +21,6 @@
       top: 0;
       left: 0;
       z-index: -1;
-      background-color: #000;
     }
 
     .navbar {
@@ -96,7 +95,7 @@
       padding: 20px;
       width: 240px;
       text-align: center;
-      box-shadow: 0 0 12px rgba(255, 0, 204, 0.3), 0 0 30px rgba(255, 0, 255, 0.1);
+      box-shadow: 0 0 12px rgba(255, 0, 204, 0.3);
       backdrop-filter: blur(6px);
       transition: transform 0.3s ease, box-shadow 0.3s ease;
     }
@@ -104,6 +103,15 @@
     .product:hover {
       transform: scale(1.03);
       box-shadow: 0 0 20px rgba(255, 0, 204, 0.6);
+    }
+
+    .product img {
+      width: 100px;
+      height: 100px;
+      object-fit: contain;
+      margin-bottom: 10px;
+      border-radius: 10px;
+      box-shadow: 0 0 12px rgba(255, 255, 255, 0.2);
     }
 
     .product h2 {
@@ -168,33 +176,44 @@
   <!-- Product Grid -->
   <div class="products">
     <div class="product">
+      <img src="IMG_1271.jpeg" alt="Trigger Bot">
       <h2>Trigger Bot (30 Days)</h2>
       <p>₹1000 / $12</p>
       <a href="payment.html" class="buy-btn">Buy</a>
     </div>
+
     <div class="product">
+      <img src="IMG_1172.jpeg" alt="1337 Cheats">
       <h2>1337 Cheat (30 Days)</h2>
       <p>₹950 / $11.5</p>
       <a href="payment.html" class="buy-btn">Buy</a>
     </div>
+
     <div class="product">
+      <img src="IMG_1273.gif" alt="Custom Discord Bot">
       <h2>Custom Discord Bot</h2>
       <p>₹400 / $5</p>
       <a href="payment.html" class="buy-btn">Buy</a>
     </div>
+
     <div class="product">
+      <img src="IMG_1272.jpeg" alt="GrandRP BAN EVADE">
       <h2>GrandRP BAN EVADE</h2>
       <p>₹400 / $5</p>
       <a href="payment.html" class="buy-btn">Buy</a>
     </div>
+
     <div class="product">
-      <h2>Exclusive Leader/Admin Scripts</h2>
-      <p>₹300 / $4</p>
-      <a href="payment.html" class="buy-btn">Buy</a>
-    </div>
-    <div class="product">
+      <img src="IMG_1274.png" alt="Money Method">
       <h2>GrandRP Money Method</h2>
       <p>₹2000 / $23</p>
+      <a href="payment.html" class="buy-btn">Buy</a>
+    </div>
+
+    <div class="product">
+      <img src="IMG_1170.png" alt="Admin Scripts">
+      <h2>Exclusive Leader/Admin Scripts</h2>
+      <p>₹300 / $4</p>
       <a href="payment.html" class="buy-btn">Buy</a>
     </div>
   </div>
@@ -209,7 +228,7 @@
   <script>
     particlesJS("particles-js", {
       particles: {
-        number: { value: 65, density: { enable: true, value_area: 800 } },
+        number: { value: 55, density: { enable: true, value_area: 800 } },
         color: { value: "#ff00cc" },
         shape: { type: "circle" },
         opacity: { value: 0.5, random: true },
