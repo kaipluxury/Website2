@@ -1,35 +1,98 @@
-body {
-  font-family: 'Segoe UI', sans-serif;
-  background-color: #0f0f17;
-  color: #e0e0e0;
-  text-align: center;
-  padding: 20px;
+* {
   margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-.logo {
-  display: block;
-  margin: 0 auto 20px;
-  max-width: 160px;
-  border-radius: 10px;
-  transition: transform 0.3s ease;
+body {
+  font-family: 'Segoe UI', sans-serif;
+  background: linear-gradient(135deg, #1e0033, #0d001a);
+  color: #f0f0f0;
+  text-align: center;
+  padding: 20px;
+  overflow-x: hidden;
 }
-.logo:hover {
-  transform: scale(1.05);
+
+/* Navbar */
+.navbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 20px;
+  background: rgba(0, 0, 0, 0.6);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.navbar .logo {
+  max-width: 100px;
+}
+
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 20px;
+}
+
+.nav-links li a {
+  color: #f0f0f0;
+  text-decoration: none;
+  font-size: 1rem;
+  transition: color 0.3s ease;
+}
+
+.nav-links li a:hover {
+  color: #ff0066;
+}
+
+/* Layout & Headings */
+.container {
+  max-width: 1200px;
+  margin: 20px auto;
+  position: relative;
 }
 
 h1 {
-  color: #ffffff;
-  font-size: 2.2rem;
-  animation: fadeInDown 1s ease-in-out;
+  font-size: 2.4rem;
+  background: linear-gradient(to right, #ff0066, #7a00cc);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  margin-bottom: 15px;
 }
 
 .subtitle {
-  color: #aaa;
+  font-size: 1rem;
+  color: #cccccc;
   margin-bottom: 30px;
-  animation: fadeIn 1.2s ease-in-out;
 }
 
+/* Glowing CTA Button */
+.btn-glow {
+  background: linear-gradient(to right, #7a00cc, #ff0066);
+  color: #fff;
+  padding: 15px 30px;
+  border-radius: 10px;
+  font-size: 1.2rem;
+  font-weight: bold;
+  text-decoration: none;
+  transition: 0.3s ease all;
+  box-shadow: 0 0 20px rgba(255, 0, 128, 0.5);
+  animation: pulse 2s infinite;
+}
+.btn-glow:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 30px rgba(255, 0, 128, 0.8);
+}
+
+@keyframes pulse {
+  0% { box-shadow: 0 0 20px rgba(255, 0, 128, 0.4); }
+  50% { box-shadow: 0 0 30px rgba(255, 0, 128, 0.8); }
+  100% { box-shadow: 0 0 20px rgba(255, 0, 128, 0.4); }
+}
+
+/* Products Section */
 .products {
   display: flex;
   flex-wrap: wrap;
@@ -39,113 +102,138 @@ h1 {
 }
 
 .product {
-  background: linear-gradient(to bottom right, #8e2de2, #4a00e0, #ff0066);
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 16px;
+  backdrop-filter: blur(12px);
   padding: 20px;
-  border-radius: 10px;
   width: 250px;
-  box-shadow: 0 0 15px rgba(255, 0, 255, 0.3);
+  text-align: center;
+  box-shadow: 0 0 25px rgba(128, 0, 255, 0.2);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
+
 .product:hover {
-  transform: translateY(-5px) scale(1.02);
-  box-shadow: 0 0 25px rgba(255, 0, 255, 0.6);
+  transform: scale(1.05);
+  box-shadow: 0 0 35px rgba(255, 0, 128, 0.4);
 }
 
 .product h2 {
-  color: #fff;
+  font-size: 1.2rem;
   margin-bottom: 10px;
-  animation: fadeIn 1s ease-in-out;
+  color: #fff;
 }
 
-.buy-btn {
-  display: inline-block;
-  margin-top: 10px;
-  padding: 10px 20px;
-  background-color: #ff0066;
-  color: white;
-  text-decoration: none;
+.product p {
+  font-size: 1rem;
+  margin-bottom: 10px;
+}
+
+/* Quantity Buttons */
+.quantity-selector {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  margin-bottom: 10px;
+}
+
+.quantity-btn {
+  background: linear-gradient(to right, #7a00cc, #ff0066);
+  border: none;
+  padding: 5px 12px;
   border-radius: 6px;
-  font-weight: bold;
-  transition: background-color 0.3s ease, transform 0.3s ease;
-}
-.buy-btn:hover {
-  background-color: #e6005c;
-  transform: scale(1.05);
+  color: #fff;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: transform 0.3s ease;
 }
 
+.quantity-btn:hover {
+  transform: scale(1.1);
+}
+
+.quantity-input {
+  width: 40px;
+  text-align: center;
+  background: rgba(255, 255, 255, 0.1);
+  border: none;
+  color: #fff;
+  font-size: 1rem;
+  border-radius: 4px;
+  pointer-events: none;
+}
+
+/* Buy Button */
+.buy-btn {
+  background: linear-gradient(to right, #7a00cc, #ff0066);
+  color: #fff;
+  padding: 10px 20px;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: 600;
+  display: inline-block;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.buy-btn:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 20px rgba(255, 0, 128, 0.4);
+}
+
+/* Payment Page Section */
 .payment-section {
-  background-color: #1c1c2c;
-  padding: 20px;
-  margin: 20px auto;
-  border-radius: 12px;
-  max-width: 400px;
-  box-shadow: 0 0 15px rgba(255, 0, 102, 0.3);
-  animation: fadeInUp 1s ease-in-out;
+  margin: 50px auto;
+  padding: 30px;
+  max-width: 420px;
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 16px;
+  backdrop-filter: blur(12px);
+  box-shadow: 0 0 25px rgba(128, 0, 255, 0.2);
 }
 
 .payment-section h2 {
-  color: #f54291;
-  margin-bottom: 5px;
+  color: #ff66cc;
+  font-size: 1.4rem;
+  margin-bottom: 15px;
+}
+
+.payment-section p {
+  color: #ddd;
+  font-size: 1rem;
+  margin-bottom: 10px;
 }
 
 .qr {
-  width: 200px;
-  margin-top: 10px;
+  width: 160px;
+  height: auto;
+  margin: 15px auto;
+  display: block;
   border-radius: 10px;
-  box-shadow: 0 0 10px #222;
+  box-shadow: 0 0 12px rgba(255, 0, 128, 0.3);
   transition: transform 0.3s ease;
 }
+
 .qr:hover {
   transform: scale(1.05);
 }
 
+/* Discord box & Footer */
 .redirect-box {
   margin-top: 40px;
-  background-color: #141421;
+  background: rgba(255, 255, 255, 0.04);
   padding: 20px;
-  border-radius: 10px;
+  border-radius: 12px;
   max-width: 600px;
   margin-left: auto;
   margin-right: auto;
-  box-shadow: 0 0 10px rgba(255, 0, 102, 0.2);
-}
-
-.redirect-box p {
-  color: #ffaaaa;
-  margin-bottom: 15px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
 }
 
 footer {
-  margin-top: 50px;
-  color: #888;
-  font-size: 0.95rem;
-  animation: fadeIn 1.5s ease-in-out;
-}
-
-/* Animations */
-@keyframes fadeIn {
-  from { opacity: 0; }
-  to { opacity: 1; }
-}
-
-@keyframes fadeInDown {
-  from {
-    opacity: 0;
-    transform: translateY(-20px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-@keyframes fadeInUp {
-  from {
-    opacity: 0;
-    transform: translateY(20px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+  margin-top: 60px;
+  font-size: 0.9rem;
+  color: #999;
+  text-align: center;
 }
