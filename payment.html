@@ -4,153 +4,13 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Payment - GrandX $tore</title>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
-  <style>
-    body {
-      margin: 0;
-      font-family: 'Inter', sans-serif;
-      background-color: #0b0b0f;
-      color: #f1f1f1;
-    }
-
-    .navbar {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 18px 32px;
-      background-color: #0e0e14;
-      position: sticky;
-      top: 0;
-      z-index: 100;
-      box-shadow: 0 2px 6px rgba(0,0,0,0.2);
-    }
-
-    .logo {
-      height: 40px;
-      border-radius: 8px;
-    }
-
-    .nav-links {
-      display: flex;
-      list-style: none;
-      gap: 28px;
-    }
-
-    .nav-links a {
-      text-decoration: none;
-      color: #f1f1f1;
-      font-weight: 500;
-      font-size: 0.95rem;
-      position: relative;
-      transition: color 0.3s;
-    }
-
-    .nav-links a::after {
-      content: "";
-      position: absolute;
-      width: 0%;
-      height: 2px;
-      bottom: -4px;
-      left: 0;
-      background-color: #7c3aed;
-      transition: width 0.3s ease;
-    }
-
-    .nav-links a:hover {
-      color: #7c3aed;
-    }
-
-    .nav-links a:hover::after {
-      width: 100%;
-    }
-
-    h1 {
-      text-align: center;
-      margin: 40px 0 10px;
-      font-size: 2rem;
-      color: #ffffff;
-    }
-
-    .subtitle {
-      text-align: center;
-      font-size: 1rem;
-      color: #aaa;
-      margin-bottom: 30px;
-    }
-
-    .payment-section {
-      background: #13131a;
-      max-width: 400px;
-      margin: 20px auto;
-      padding: 20px;
-      border-radius: 12px;
-      box-shadow: 0 0 6px rgba(124, 58, 237, 0.15);
-      text-align: center;
-    }
-
-    .payment-section h2 {
-      color: #7c3aed;
-      margin-bottom: 10px;
-    }
-
-    .crypto-address {
-      background: #1d1d26;
-      padding: 8px 12px;
-      border-radius: 6px;
-      font-family: monospace;
-      font-size: 0.9rem;
-      color: #f1f1f1;
-      word-break: break-all;
-      margin: 0 auto 12px;
-    }
-
-    .qr {
-      width: 180px;
-      border-radius: 10px;
-      box-shadow: 0 0 8px rgba(0,0,0,0.3);
-    }
-
-    .redirect-box {
-      background: #181822;
-      max-width: 500px;
-      margin: 40px auto;
-      padding: 24px;
-      border-radius: 10px;
-      text-align: center;
-    }
-
-    .redirect-box p {
-      margin-bottom: 16px;
-      color: #ccc;
-    }
-
-    .redirect-box a {
-      padding: 10px 24px;
-      background-color: #7c3aed;
-      color: #fff;
-      text-decoration: none;
-      font-weight: 600;
-      border-radius: 6px;
-      transition: background 0.3s ease;
-    }
-
-    .redirect-box a:hover {
-      background-color: #6d28d9;
-    }
-
-    footer {
-      text-align: center;
-      padding: 30px;
-      font-size: 0.85rem;
-      color: #888;
-    }
-  </style>
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
+  <canvas id="particles"></canvas>
 
-  <!-- Navbar -->
   <nav class="navbar">
-    <img src="IMG_1096.jpeg" alt="Logo" class="logo" />
+    <img src="IMG_1096.jpeg" alt="GrandX Logo" class="nav-logo">
     <ul class="nav-links">
       <li><a href="index.html">Home</a></li>
       <li><a href="products.html">Products</a></li>
@@ -159,41 +19,119 @@
     </ul>
   </nav>
 
-  <h1>Payment Methods</h1>
-  <p class="subtitle">Use UPI or Crypto to complete your order</p>
+  <header class="hero">
+    <h1><span class="glow-pink">Payment</span> <span class="glow-white">Methods</span></h1>
+    <p class="quote">Choose your preferred method and pay securely.</p>
+  </header>
 
-  <div class="payment-section">
-    <h2>UPI (India)</h2>
-    <div class="crypto-address">payishant@fam</div>
-    <img src="IMG_1256.jpeg" alt="UPI QR" class="qr" />
-  </div>
+  <section class="payment-section">
+    <div class="payment-card">
+      <h2>UPI (India)</h2>
+      <div class="copy-box">
+        <input type="text" value="payishant@fam" readonly class="copy-input">
+        <button onclick="copyToClipboard(this)" class="copy-btn">Copy</button>
+      </div>
+      <img src="IMG_1256.jpeg" alt="UPI QR" class="qr">
+    </div>
 
-  <div class="payment-section">
-    <h2>USDT (TRC20)</h2>
-    <div class="crypto-address">TCgaBsn5HnsZVTsrgd4smVyqdF7pDrYLok</div>
-    <img src="E7288C9A-8C42-40A1-90DD-35A9352FCF03.png" alt="TRC20 QR" class="qr" />
-  </div>
+    <div class="payment-card">
+      <h2>USDT (TRC20)</h2>
+      <div class="copy-box">
+        <input type="text" value="TCgaBsn5HnsZVTsrgd4smVyqdF7pDrYLok" readonly class="copy-input">
+        <button onclick="copyToClipboard(this)" class="copy-btn">Copy</button>
+      </div>
+      <img src="E7288C9A-8C42-40A1-90DD-35A9352FCF03.png" alt="TRC20 QR" class="qr">
+    </div>
 
-  <div class="payment-section">
-    <h2>USDT (Polygon)</h2>
-    <div class="crypto-address">0x1DC2Fdd9Cc33ce107505aA81f1cb4811949ECAAF</div>
-    <img src="6D73EEB9-494E-4715-A3FC-6CA768BB0820.png" alt="Polygon QR" class="qr" />
-  </div>
+    <div class="payment-card">
+      <h2>USDT (Polygon)</h2>
+      <div class="copy-box">
+        <input type="text" value="0x1DC2Fdd9Cc33ce107505aA81f1cb4811949ECAAF" readonly class="copy-input">
+        <button onclick="copyToClipboard(this)" class="copy-btn">Copy</button>
+      </div>
+      <img src="6D73EEB9-494E-4715-A3FC-6CA768BB0820.png" alt="Polygon QR" class="qr">
+    </div>
 
-  <div class="payment-section">
-    <h2>Litecoin (LTC)</h2>
-    <div class="crypto-address">ltc1qr354v0qe2mja3rq423g4x80m3lxwcf0vfp5mcv</div>
-    <img src="2408CF2F-80E8-4C69-A15D-814F965B3D4D.png" alt="LTC QR" class="qr" />
-  </div>
+    <div class="payment-card">
+      <h2>Litecoin (LTC)</h2>
+      <div class="copy-box">
+        <input type="text" value="ltc1qr354v0qe2mja3rq423g4x80m3lxwcf0vfp5mcv" readonly class="copy-input">
+        <button onclick="copyToClipboard(this)" class="copy-btn">Copy</button>
+      </div>
+      <img src="2408CF2F-80E8-4C69-A15D-814F965B3D4D.png" alt="LTC QR" class="qr">
+    </div>
+  </section>
 
-  <div class="redirect-box">
-    <p>After payment, click below to open a ticket and confirm your order.</p>
-    <a href="https://discord.gg/Ft629G5RZE" target="_blank">Open Ticket on Discord</a>
-  </div>
+  <section class="discord-callout">
+    <h2>After payment, open a ticket on Discord</h2>
+    <a href="https://discord.gg/Ft629G5RZE" target="_blank" class="btn">Open Ticket</a>
+  </section>
 
-  <footer>
-    <p>© 2025 GrandX $tore. All rights reserved.</p>
+  <footer class="footer">
+    <div class="footer-content">
+      <div class="footer-branding">
+        <p><strong>GrandX $tore</strong></p>
+        <p>© 2025 GrandX $tore. All rights reserved.</p>
+      </div>
+      <div class="footer-links">
+        <h3>Navigation</h3>
+        <a href="index.html">Home</a>
+        <a href="products.html">Products</a>
+        <a href="payment.html">Payment</a>
+        <a href="tos.html">TOS</a>
+      </div>
+      <div class="footer-socials">
+        <h3>Socials</h3>
+        <a href="https://discord.gg/Ft629G5RZE">Discord</a>
+        <a href="https://t.me/+dmVBozU2KMRjZWU1">Telegram</a>
+        <a href="https://www.instagram.com/grandxstore">Instagram</a>
+      </div>
+    </div>
   </footer>
 
+  <script>
+    function copyToClipboard(button) {
+      const input = button.previousElementSibling;
+      input.select();
+      input.setSelectionRange(0, 99999);
+      navigator.clipboard.writeText(input.value);
+      button.textContent = "Copied!";
+      setTimeout(() => button.textContent = "Copy", 2000);
+    }
+
+    // Background particles
+    const canvas = document.getElementById('particles');
+    const ctx = canvas.getContext('2d');
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+    const particles = [];
+
+    for (let i = 0; i < 100; i++) {
+      particles.push({
+        x: Math.random() * canvas.width,
+        y: Math.random() * canvas.height,
+        r: Math.random() * 1.5 + 0.5,
+        dx: Math.random() - 0.5,
+        dy: Math.random() - 0.5
+      });
+    }
+
+    function animateParticles() {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      ctx.fillStyle = 'rgba(255, 255, 255, 0.2)';
+      particles.forEach(p => {
+        p.x += p.dx;
+        p.y += p.dy;
+        if (p.x < 0 || p.x > canvas.width) p.dx *= -1;
+        if (p.y < 0 || p.y > canvas.height) p.dy *= -1;
+        ctx.beginPath();
+        ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
+        ctx.fill();
+      });
+      requestAnimationFrame(animateParticles);
+    }
+
+    animateParticles();
+  </script>
 </body>
 </html>
