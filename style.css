@@ -8,38 +8,37 @@ body {
   font-family: 'Segoe UI', sans-serif;
   background-color: #000;
   color: #fff;
-  overflow-x: hidden;
+  text-align: center;
   padding: 20px;
+  overflow-x: hidden;
 }
 
-canvas#particles-js {
+#particles-js {
   position: fixed;
-  top: 0;
-  left: 0;
-  z-index: 0;
   width: 100%;
   height: 100%;
+  z-index: 0;
 }
 
 .container {
   position: relative;
   z-index: 2;
-  text-align: center;
 }
 
 .logo {
-  max-width: 140px;
-  margin: 20px auto;
-  border-radius: 10px;
-  filter: drop-shadow(0 0 10px #ff0033);
+  max-width: 160px;
+  border-radius: 12px;
+  margin: 0 auto 20px;
+  display: block;
   transition: transform 0.3s ease;
+  filter: drop-shadow(0 0 8px #ff0033);
 }
 .logo:hover {
-  transform: scale(1.1);
+  transform: scale(1.05);
 }
 
 h1 {
-  font-size: 2.5rem;
+  font-size: 2.2rem;
   background: linear-gradient(to right, #ff0000, #990000);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -51,61 +50,58 @@ h1 {
   color: #ffaaaa;
   margin-bottom: 30px;
   font-size: 1rem;
-  animation: fadeIn 1.4s ease;
+  animation: fadeIn 1.2s ease;
 }
 
 .products {
   display: flex;
-  justify-content: center;
   flex-wrap: wrap;
-  gap: 25px;
-  margin-top: 40px;
-  animation: fadeInUp 1.2s ease;
+  justify-content: center;
+  gap: 20px;
+  margin-top: 30px;
 }
 
 .product {
   background-color: rgba(50, 0, 0, 0.8);
   border: 1px solid #ff0033;
-  border-radius: 14px;
-  padding: 25px;
-  width: 260px;
-  box-shadow: 0 0 20px rgba(255, 0, 0, 0.3);
-  transition: all 0.4s ease;
+  border-radius: 12px;
+  padding: 20px;
+  width: 250px;
+  box-shadow: 0 0 15px rgba(255, 0, 0, 0.3);
+  transition: all 0.3s ease;
 }
 .product:hover {
   transform: scale(1.05);
-  box-shadow: 0 0 40px rgba(255, 0, 0, 0.6);
+  box-shadow: 0 0 25px rgba(255, 0, 0, 0.5);
 }
 
 .product h2 {
-  color: #fff;
-  font-size: 1.2rem;
+  font-size: 1.1rem;
   margin-bottom: 10px;
+  color: #fff;
 }
 
 .buy-btn {
+  display: inline-block;
+  margin-top: 10px;
+  padding: 10px 20px;
   background: linear-gradient(to right, #990000, #ff0000);
-  border: none;
-  padding: 10px 25px;
-  border-radius: 8px;
   color: white;
+  text-decoration: none;
+  border-radius: 6px;
   font-weight: bold;
-  margin-top: 15px;
-  cursor: pointer;
-  font-size: 1rem;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 .buy-btn:hover {
   transform: scale(1.08);
-  box-shadow: 0 0 20px #ff0033;
+  box-shadow: 0 0 15px #ff0033;
 }
 
 footer {
-  margin-top: 60px;
-  font-size: 0.9rem;
-  color: #ff5555;
-  text-align: center;
-  animation: fadeIn 2s ease;
+  margin-top: 50px;
+  color: #ff6666;
+  font-size: 0.95rem;
+  animation: fadeIn 1.8s ease;
 }
 
 /* Animations */
@@ -113,13 +109,7 @@ footer {
   from { opacity: 0; }
   to { opacity: 1; }
 }
-
 @keyframes fadeInDown {
-  from { opacity: 0; transform: translateY(-30px); }
-  to { opacity: 1; transform: translateY(0); }
-}
-
-@keyframes fadeInUp {
-  from { opacity: 0; transform: translateY(30px); }
+  from { opacity: 0; transform: translateY(-20px); }
   to { opacity: 1; transform: translateY(0); }
 }
