@@ -1,13 +1,112 @@
-<section class="discord-callout">
-  <h2>🛍️ Order Info</h2>
-  <p>• Items may be pre-ordered if stock isn’t available...<br>• Payment is required first.</p>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Terms of Service - GrandX $tore</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <canvas id="particles"></canvas>
 
-  <h2 style="margin-top:30px;">🎫 Ticket Rules</h2>
-  <p>• Be respectful — rude behavior = ticket closed ❌<br>• One ticket per issue only</p>
+  <nav class="navbar">
+    <img src="IMG_1096.jpeg" alt="GrandX Logo" class="nav-logo">
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="products.html">Products</a></li>
+      <li><a href="payment.html">Payment</a></li>
+      <li><a href="tos.html">TOS</a></li>
+    </ul>
+  </nav>
 
-  <h2 style="margin-top:30px;">💸 Refunds & Replacements</h2>
-  <p>• No refunds for change of mind<br>• Replacements only if it’s our fault with proof</p>
+  <header class="hero">
+    <h1><span class="glow-pink">Terms of</span> <span class="glow-white">Service</span></h1>
+    <p class="quote">Please read carefully before purchasing any product.</p>
+  </header>
 
-  <h2 style="margin-top:30px;">⚠️ Final Note</h2>
-  <p>Opening a ticket means you accept all rules.</p>
-</section>
+  <section class="discord-callout">
+    <h2>🛍️ Order & Delivery</h2>
+    <ul>
+      <li>Products are delivered via Discord after successful payment.</li>
+      <li>Delivery may take 5 minutes to a few hours depending on availability.</li>
+      <li>If your item is out of stock, it will be pre-ordered and you will be notified.</li>
+      <li>In case of delay, you may receive a small bonus.</li>
+    </ul>
+
+    <h2 style="margin-top:30px;">🎫 Ticket Support</h2>
+    <ul>
+      <li>Be respectful and patient — staff members handle multiple tickets.</li>
+      <li>Do not spam DMs or ping staff members repeatedly.</li>
+      <li>One ticket per issue — creating multiple tickets may result in closure.</li>
+      <li>Always include payment proof and clear explanation of your issue.</li>
+    </ul>
+
+    <h2 style="margin-top:30px;">💸 Refunds & Replacements</h2>
+    <ul>
+      <li>No refunds will be provided for buyer’s remorse or mistaken orders.</li>
+      <li>Replacements are only available if the fault is from our side and clear proof is submitted.</li>
+      <li>No valid or full proof = no replacement. We only act on solid evidence.</li>
+    </ul>
+
+    <h2 style="margin-top:30px;">⚠️ Final Agreement</h2>
+    <p>By placing an order, you agree to these terms and understand our refund & support policy. Opening a ticket after payment confirms your acceptance of these rules.</p>
+  </section>
+
+  <footer class="footer">
+    <div class="footer-content">
+      <div class="footer-branding">
+        <p><strong>GrandX $tore</strong></p>
+        <p>© 2025 GrandX $tore. All rights reserved.</p>
+      </div>
+      <div class="footer-links">
+        <h3>Navigation</h3>
+        <a href="index.html">Home</a>
+        <a href="products.html">Products</a>
+        <a href="payment.html">Payment</a>
+        <a href="tos.html">TOS</a>
+      </div>
+      <div class="footer-socials">
+        <h3>Socials</h3>
+        <a href="https://discord.gg/Ft629G5RZE">Discord</a>
+        <a href="https://t.me/+dmVBozU2KMRjZWU1">Telegram</a>
+        <a href="https://www.instagram.com/grandxstore">Instagram</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    const canvas = document.getElementById('particles');
+    const ctx = canvas.getContext('2d');
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+    const particles = [];
+
+    for (let i = 0; i < 100; i++) {
+      particles.push({
+        x: Math.random() * canvas.width,
+        y: Math.random() * canvas.height,
+        r: Math.random() * 1.5 + 0.5,
+        dx: Math.random() - 0.5,
+        dy: Math.random() - 0.5
+      });
+    }
+
+    function animateParticles() {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      ctx.fillStyle = 'rgba(255, 255, 255, 0.2)';
+      particles.forEach(p => {
+        p.x += p.dx;
+        p.y += p.dy;
+        if (p.x < 0 || p.x > canvas.width) p.dx *= -1;
+        if (p.y < 0 || p.y > canvas.height) p.dy *= -1;
+        ctx.beginPath();
+        ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
+        ctx.fill();
+      });
+      requestAnimationFrame(animateParticles);
+    }
+
+    animateParticles();
+  </script>
+</body>
+</html>
