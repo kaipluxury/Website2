@@ -4,6 +4,7 @@ body {
   color: #e0e0e0;
   text-align: center;
   padding: 20px;
+  margin: 0;
 }
 
 .logo {
@@ -15,7 +16,11 @@ body {
 
 h1 {
   color: #ffffff;
-  font-size: 2rem;
+  font-size: 2.2rem;
+}
+.subtitle {
+  color: #aaa;
+  margin-bottom: 30px;
 }
 
 .products {
@@ -34,6 +39,10 @@ h1 {
   box-shadow: 0 0 10px rgba(255, 0, 255, 0.3);
 }
 
+.product h2 {
+  color: #fff;
+}
+
 .buy-btn {
   display: inline-block;
   margin-top: 10px;
@@ -42,26 +51,45 @@ h1 {
   color: white;
   text-decoration: none;
   border-radius: 6px;
+  font-weight: bold;
 }
 
 .payment-section {
-  margin: 30px 0;
+  background-color: #1c1c2c;
+  padding: 20px;
+  margin: 20px auto;
+  border-radius: 12px;
+  max-width: 400px;
+}
+
+.payment-section h2 {
+  color: #f54291;
+  margin-bottom: 5px;
 }
 
 .qr {
-  width: 180px;
+  width: 200px;
   margin-top: 10px;
-  border-radius: 12px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px #222;
 }
 
-.note {
+.redirect-box {
   margin-top: 40px;
+  background-color: #141421;
+  padding: 20px;
+  border-radius: 10px;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+}
+.redirect-box p {
   color: #ffaaaa;
-  font-size: 0.95rem;
+  margin-bottom: 15px;
 }
 
 footer {
-  margin-top: 40px;
-  font-size: 0.9rem;
-  color: #777;
+  margin-top: 50px;
+  color: #888;
+  font-size: 0.95rem;
 }
