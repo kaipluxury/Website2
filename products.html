@@ -2,15 +2,158 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>GrandX $tore - Products</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Products - GrandX $tore</title>
   <link rel="stylesheet" href="style.css" />
-  <script defer src="script.js"></script>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #000;
+      color: #fff;
+      overflow-x: hidden;
+    }
+
+    #particles-js {
+      position: fixed;
+      width: 100%;
+      height: 100%;
+      top: 0;
+      left: 0;
+      z-index: -1;
+      background-color: #000;
+    }
+
+    .navbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 12px 30px;
+      background: rgba(0, 0, 0, 0.4);
+      position: sticky;
+      top: 0;
+      z-index: 10;
+    }
+
+    .logo-container {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .logo {
+      height: 40px;
+      border-radius: 8px;
+    }
+
+    .brand-text {
+      font-weight: bold;
+      font-size: 1rem;
+      color: #fff;
+      white-space: nowrap;
+    }
+
+    .nav-links {
+      display: flex;
+      list-style: none;
+      gap: 20px;
+    }
+
+    .nav-links a {
+      color: #fff;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 0.95rem;
+      transition: 0.3s ease;
+    }
+
+    .nav-links a:hover {
+      color: #ff00cc;
+    }
+
+    h1 {
+      text-align: center;
+      margin-top: 40px;
+      font-size: 2rem;
+      color: #ff00cc;
+      z-index: 2;
+      position: relative;
+    }
+
+    .products {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 20px;
+      padding: 40px 20px;
+      position: relative;
+      z-index: 2;
+    }
+
+    .product {
+      background: rgba(20, 20, 20, 0.8);
+      border-radius: 12px;
+      padding: 20px;
+      width: 240px;
+      text-align: center;
+      box-shadow: 0 0 12px rgba(255, 0, 204, 0.3), 0 0 30px rgba(255, 0, 255, 0.1);
+      backdrop-filter: blur(6px);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .product:hover {
+      transform: scale(1.03);
+      box-shadow: 0 0 20px rgba(255, 0, 204, 0.6);
+    }
+
+    .product h2 {
+      font-size: 1.2rem;
+      color: #fff;
+    }
+
+    .product p {
+      font-size: 1rem;
+      margin: 8px 0 16px;
+      color: #aaa;
+    }
+
+    .buy-btn {
+      display: inline-block;
+      padding: 10px 20px;
+      background: #ff00cc;
+      color: #fff;
+      text-decoration: none;
+      border-radius: 8px;
+      font-weight: bold;
+      transition: background 0.3s ease, transform 0.2s ease;
+    }
+
+    .buy-btn:hover {
+      background: #e600b8;
+      transform: scale(1.05);
+    }
+
+    footer {
+      text-align: center;
+      padding: 30px;
+      font-size: 0.9rem;
+      color: #999;
+      z-index: 2;
+      position: relative;
+    }
+  </style>
 </head>
 <body>
+
+  <!-- Particles Background -->
+  <div id="particles-js"></div>
+
   <!-- Navbar -->
   <nav class="navbar">
-    <img src="logo.png" alt="GrandX Logo" class="logo" />
+    <div class="logo-container">
+      <img src="IMG_1096.jpeg" alt="GrandX Logo" class="logo" />
+      <span class="brand-text">GrandX $tore</span>
+    </div>
     <ul class="nav-links">
       <li><a href="index.html">Home</a></li>
       <li><a href="products.html">Products</a></li>
@@ -19,83 +162,83 @@
     </ul>
   </nav>
 
+  <!-- Page Title -->
   <h1>Our Products</h1>
 
+  <!-- Product Grid -->
   <div class="products">
     <div class="product">
       <h2>Trigger Bot (30 Days)</h2>
       <p>₹1000 / $12</p>
-      <div class="quantity-selector">
-        <button class="quantity-btn" onclick="decrementQuantity(this)">–</button>
-        <input type="text" class="quantity-input" value="1" readonly>
-        <button class="quantity-btn" onclick="incrementQuantity(this)">+</button>
-      </div>
       <a href="payment.html" class="buy-btn">Buy</a>
     </div>
-
     <div class="product">
       <h2>1337 Cheat (30 Days)</h2>
       <p>₹950 / $11.5</p>
-      <div class="quantity-selector">
-        <button class="quantity-btn" onclick="decrementQuantity(this)">–</button>
-        <input type="text" class="quantity-input" value="1" readonly>
-        <button class="quantity-btn" onclick="incrementQuantity(this)">+</button>
-      </div>
       <a href="payment.html" class="buy-btn">Buy</a>
     </div>
-
     <div class="product">
       <h2>Custom Discord Bot</h2>
       <p>₹400 / $5</p>
-      <div class="quantity-selector">
-        <button class="quantity-btn" onclick="decrementQuantity(this)">–</button>
-        <input type="text" class="quantity-input" value="1" readonly>
-        <button class="quantity-btn" onclick="incrementQuantity(this)">+</button>
-      </div>
       <a href="payment.html" class="buy-btn">Buy</a>
     </div>
-
     <div class="product">
       <h2>GrandRP BAN EVADE</h2>
       <p>₹400 / $5</p>
-      <div class="quantity-selector">
-        <button class="quantity-btn" onclick="decrementQuantity(this)">–</button>
-        <input type="text" class="quantity-input" value="1" readonly>
-        <button class="quantity-btn" onclick="incrementQuantity(this)">+</button>
-      </div>
       <a href="payment.html" class="buy-btn">Buy</a>
     </div>
-
     <div class="product">
       <h2>Exclusive Leader/Admin Scripts</h2>
       <p>₹300 / $4</p>
-      <div class="quantity-selector">
-        <button class="quantity-btn" onclick="decrementQuantity(this)">–</button>
-        <input type="text" class="quantity-input" value="1" readonly>
-        <button class="quantity-btn" onclick="incrementQuantity(this)">+</button>
-      </div>
       <a href="payment.html" class="buy-btn">Buy</a>
     </div>
-
     <div class="product">
       <h2>GrandRP Money Method</h2>
       <p>₹2000 / $23</p>
-      <div class="quantity-selector">
-        <button class="quantity-btn" onclick="decrementQuantity(this)">–</button>
-        <input type="text" class="quantity-input" value="1" readonly>
-        <button class="quantity-btn" onclick="incrementQuantity(this)">+</button>
-      </div>
       <a href="payment.html" class="buy-btn">Buy</a>
     </div>
   </div>
 
-  <div class="redirect-box">
-    <p>Want to stay updated? Join our Discord community.</p>
-    <a href="https://discord.gg/Ft629G5RZE" target="_blank" class="buy-btn">Join Our Server</a>
-  </div>
-
+  <!-- Footer -->
   <footer>
     <p>Made by Kai</p>
   </footer>
+
+  <!-- Particles.js -->
+  <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
+  <script>
+    particlesJS("particles-js", {
+      particles: {
+        number: { value: 65, density: { enable: true, value_area: 800 } },
+        color: { value: "#ff00cc" },
+        shape: { type: "circle" },
+        opacity: { value: 0.5, random: true },
+        size: { value: 3, random: true },
+        line_linked: {
+          enable: true,
+          distance: 130,
+          color: "#ff00cc",
+          opacity: 0.3,
+          width: 1
+        },
+        move: {
+          enable: true,
+          speed: 1.2
+        }
+      },
+      interactivity: {
+        detect_on: "canvas",
+        events: {
+          onhover: { enable: true, mode: "grab" },
+          onclick: { enable: true, mode: "push" }
+        },
+        modes: {
+          grab: { distance: 140, line_linked: { opacity: 0.6 } },
+          push: { particles_nb: 4 }
+        }
+      },
+      retina_detect: true
+    });
+  </script>
 </body>
 </html>
