@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Verify Access - GrandX $tore</title>
+  <title>Verify Key - GrandX $tore</title>
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
@@ -21,25 +21,34 @@
   </nav>
 
   <header class="hero">
-    <h1><span class="glow-pink">Script</span> <span class="glow-white">Access</span></h1>
-    <p class="quote">Enter your key to download your exclusive script.</p>
+    <h1><span class="glow-pink">Script</span> <span class="glow-white">Verification</span></h1>
+    <p class="quote">Enter your key and download your exclusive file</p>
   </header>
 
-  <section class="verify-form">
-    <select id="roleSelect">
-      <option value="">Select Role</option>
-      <option value="leader">Leader</option>
-      <option value="admin">Admin</option>
-    </select>
+  <section class="verify-section">
+    <div class="verify-container">
+      <select id="role" onchange="toggleOrgDropdown()">
+        <option disabled selected>Select Role</option>
+        <option value="Leader">Leader</option>
+        <option value="Admin">Admin</option>
+      </select>
 
-    <select id="orgSelect">
-      <option value="">Select Organization</option>
-    </select>
+      <select id="org" style="display: none;">
+        <option disabled selected>Select Organization</option>
+        <option value="EMS">EMS</option>
+        <option value="SAHP">SAHP</option>
+        <option value="NG">NG</option>
+        <option value="FIB">FIB</option>
+        <option value="GOV">GOV</option>
+        <option value="GANGS">GANGS</option>
+        <option value="Admin Level 1">Admin Level 1</option>
+        <option value="Admin Level 2">Admin Level 2</option>
+      </select>
 
-    <input type="text" id="keyInput" placeholder="Enter your access key" />
-    <button onclick="verifyKey()">Verify & Download</button>
-    <p id="result" class="quote"></p>
-    <p class="get-key">Want a Key? <a href="https://discord.gg/Ft629G5RZE" target="_blank">Open Ticket in Discord</a></p>
+      <input type="text" id="key" placeholder="Enter your access key" />
+      <button onclick="verifyKey()">Verify & Download</button>
+    </div>
+    <p class="verify-note">Want a Key? <a href="https://discord.gg/Ft629G5RZE" target="_blank">Open Ticket in Discord</a></p>
   </section>
 
   <footer class="footer">
@@ -65,60 +74,13 @@
   </footer>
 
   <script>
-    const scriptURL = "https://script.google.com/macros/s/AKfycbz3C1PZzYbJZoUPlr1D7qkzFzT4UOE_your_deployed_url/exec";
-
-    const roleSelect = document.getElementById('roleSelect');
-    const orgSelect = document.getElementById('orgSelect');
-    const result = document.getElementById('result');
-
-    const orgs = {
-      leader: ["ems", "sahp", "ng", "fib", "gov", "gangs"],
-      admin: ["admin1", "admin2"]
-    };
-
-    roleSelect.addEventListener('change', () => {
-      orgSelect.innerHTML = '<option value="">Select Organization</option>';
-      const selectedRole = roleSelect.value;
-      if (orgs[selectedRole]) {
-        orgs[selectedRole].forEach(org => {
-          const opt = document.createElement('option');
-          opt.value = org;
-          opt.innerText = org.toUpperCase();
-          orgSelect.appendChild(opt);
-        });
-      }
-    });
-
-    async function verifyKey() {
-      const role = roleSelect.value;
-      const org = orgSelect.value;
-      const key = document.getElementById('keyInput').value;
-
-      result.innerText = "Checking...";
-      result.style.color = "white";
-
-      const res = await fetch(`${scriptURL}?key=${key}&role=${role}&org=${org}`);
-      const text = await res.text();
-
-      if (text.startsWith("VALID:")) {
-        const file = text.split(":")[1];
-        result.innerText = "Access granted. Downloading...";
-        window.location.href = file;
-      } else {
-        result.innerText = text;
-        result.style.color = "red";
-      }
-    }
-  </script>
-
-  <script>
     const canvas = document.getElementById('particles');
     const ctx = canvas.getContext('2d');
     canvas.width = window.innerWidth;
     canvas.height = window.innerHeight;
     const particles = [];
 
-    for (let i = 0; i < 80; i++) {
+    for (let i = 0; i < 100; i++) {
       particles.push({
         x: Math.random() * canvas.width,
         y: Math.random() * canvas.height,
@@ -144,6 +106,63 @@
     }
 
     animateParticles();
+
+    function toggleOrgDropdown() {
+      const role = document.getElementById("role").value;
+      const orgSelect = document.getElementById("org");
+      orgSelect.style.display = role === "Leader" || role === "Admin" ? "inline-block" : "none";
+      orgSelect.innerHTML = '';
+
+      const options = {
+        Leader: ["EMS", "SAHP", "NG", "FIB", "GOV", "GANGS"],
+        Admin: ["Admin Level 1", "Admin Level 2"]
+      };
+
+      const defaultOpt = document.createElement("option");
+      defaultOpt.text = "Select Organization";
+      defaultOpt.disabled = true;
+      defaultOpt.selected = true;
+      orgSelect.add(defaultOpt);
+
+      options[role].forEach(org => {
+        const opt = document.createElement("option");
+        opt.value = org;
+        opt.text = org;
+        orgSelect.add(opt);
+      });
+    }
+
+    function verifyKey() {
+      const role = document.getElementById("role").value;
+      const org = document.getElementById("org").value;
+      const key = document.getElementById("key").value;
+
+      if (!role || !org || !key) {
+        alert("Please select role, organization, and enter your key.");
+        return;
+      }
+
+      const url = "https://script.google.com/macros/s/AKfycbw0gAHKnoE3VtPbYmcgyqWWGqu9I3H0zDGcgzOk5UvJbPjeB5XCM2-j4JQ2bK3H8vTD/exec";
+      const params = new URLSearchParams({
+        role: role,
+        org: org,
+        key: key
+      });
+
+      fetch(`${url}?${params}`)
+        .then(response => response.json())
+        .then(data => {
+          if (data.success) {
+            window.location.href = data.link;
+          } else {
+            alert("Invalid or already used key.");
+          }
+        })
+        .catch(err => {
+          console.error(err);
+          alert("Something went wrong. Try again.");
+        });
+    }
   </script>
 </body>
 </html>
