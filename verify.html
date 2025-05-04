@@ -21,34 +21,17 @@
   </nav>
 
   <header class="hero">
-    <h1><span class="glow-pink">Script</span> <span class="glow-white">Verification</span></h1>
-    <p class="quote">Enter your key and download your exclusive file</p>
+    <h1><span class="glow-pink">Script</span> <span class="glow-white">Access</span></h1>
+    <p class="quote">Enter your access key to get your file</p>
   </header>
 
   <section class="verify-section">
     <div class="verify-container">
-      <select id="role" onchange="toggleOrgDropdown()">
-        <option disabled selected>Select Role</option>
-        <option value="Leader">Leader</option>
-        <option value="Admin">Admin</option>
-      </select>
-
-      <select id="org" style="display: none;">
-        <option disabled selected>Select Organization</option>
-        <option value="EMS">EMS</option>
-        <option value="SAHP">SAHP</option>
-        <option value="NG">NG</option>
-        <option value="FIB">FIB</option>
-        <option value="GOV">GOV</option>
-        <option value="GANGS">GANGS</option>
-        <option value="Admin Level 1">Admin Level 1</option>
-        <option value="Admin Level 2">Admin Level 2</option>
-      </select>
-
       <input type="text" id="key" placeholder="Enter your access key" />
       <button onclick="verifyKey()">Verify & Download</button>
+      <p id="result" class="quote"></p>
     </div>
-    <p class="verify-note">Want a Key? <a href="https://discord.gg/Ft629G5RZE" target="_blank">Open Ticket in Discord</a></p>
+    <p class="get-key">Want a Key? <a href="https://discord.gg/Ft629G5RZE" target="_blank">Open Ticket in Discord</a></p>
   </section>
 
   <footer class="footer">
@@ -63,6 +46,7 @@
         <a href="products.html">Products</a>
         <a href="payment.html">Payment</a>
         <a href="tos.html">TOS</a>
+        <a href="verify.html">Verify</a>
       </div>
       <div class="footer-socials">
         <h3>Socials</h3>
@@ -107,60 +91,34 @@
 
     animateParticles();
 
-    function toggleOrgDropdown() {
-      const role = document.getElementById("role").value;
-      const orgSelect = document.getElementById("org");
-      orgSelect.style.display = role === "Leader" || role === "Admin" ? "inline-block" : "none";
-      orgSelect.innerHTML = '';
-
-      const options = {
-        Leader: ["EMS", "SAHP", "NG", "FIB", "GOV", "GANGS"],
-        Admin: ["Admin Level 1", "Admin Level 2"]
-      };
-
-      const defaultOpt = document.createElement("option");
-      defaultOpt.text = "Select Organization";
-      defaultOpt.disabled = true;
-      defaultOpt.selected = true;
-      orgSelect.add(defaultOpt);
-
-      options[role].forEach(org => {
-        const opt = document.createElement("option");
-        opt.value = org;
-        opt.text = org;
-        orgSelect.add(opt);
-      });
-    }
-
     function verifyKey() {
-      const role = document.getElementById("role").value;
-      const org = document.getElementById("org").value;
-      const key = document.getElementById("key").value;
+      const key = document.getElementById("key").value.trim();
+      const result = document.getElementById("result");
 
-      if (!role || !org || !key) {
-        alert("Please select role, organization, and enter your key.");
+      if (!key) {
+        result.innerText = "Please enter a key.";
+        result.style.color = "orange";
         return;
       }
 
       const url = "https://script.google.com/macros/s/AKfycbw0gAHKnoE3VtPbYmcgyqWWGqu9I3H0zDGcgzOk5UvJbPjeB5XCM2-j4JQ2bK3H8vTD/exec";
-      const params = new URLSearchParams({
-        role: role,
-        org: org,
-        key: key
-      });
 
-      fetch(`${url}?${params}`)
-        .then(response => response.json())
-        .then(data => {
-          if (data.success) {
-            window.location.href = data.link;
+      fetch(`${url}?key=${key}`)
+        .then(response => response.text())
+        .then(text => {
+          if (text.startsWith("VALID:")) {
+            const link = text.split(":")[1];
+            result.innerText = "Access granted. Downloading...";
+            result.style.color = "lightgreen";
+            window.location.href = link;
           } else {
-            alert("Invalid or already used key.");
+            result.innerText = text;
+            result.style.color = "red";
           }
         })
         .catch(err => {
-          console.error(err);
-          alert("Something went wrong. Try again.");
+          result.innerText = "Error verifying key.";
+          result.style.color = "red";
         });
     }
   </script>
