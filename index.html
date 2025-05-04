@@ -12,15 +12,20 @@
       background-color: #0b0b0f;
       color: #f1f1f1;
       overflow-x: hidden;
+      scroll-behavior: smooth;
     }
 
-    #particles-js {
-      position: fixed;
-      width: 100%;
-      height: 100%;
-      z-index: -1;
-      top: 0;
-      left: 0;
+    .fade-up {
+      animation: fadeUp 0.8s ease forwards;
+      opacity: 0;
+      transform: translateY(20px);
+    }
+
+    @keyframes fadeUp {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
     }
 
     .navbar {
@@ -33,12 +38,6 @@
       top: 0;
       z-index: 100;
       box-shadow: 0 2px 6px rgba(0,0,0,0.2);
-      animation: slideDown 0.6s ease;
-    }
-
-    @keyframes slideDown {
-      from { transform: translateY(-100%); opacity: 0; }
-      to { transform: translateY(0); opacity: 1; }
     }
 
     .logo {
@@ -123,7 +122,7 @@
       font-weight: 600;
       border-radius: 8px;
       font-size: 1rem;
-      transition: background 0.3s ease, transform 0.2s ease;
+      transition: background-color 0.3s ease, transform 0.2s ease;
     }
 
     .cta a:hover {
@@ -131,39 +130,42 @@
       transform: scale(1.05);
     }
 
-    .featured-icons {
-      margin-top: 50px;
-      display: flex;
-      justify-content: center;
-      gap: 25px;
-      flex-wrap: wrap;
+    .callout {
+      margin: 60px auto 40px;
+      background: #141421;
+      border: 1px solid #292938;
+      max-width: 600px;
+      padding: 32px;
+      border-radius: 16px;
+      text-align: center;
+      box-shadow: 0 0 16px rgba(124, 58, 237, 0.1);
+      transition: box-shadow 0.3s ease;
     }
 
-    .icon-box {
-      background: #13131a;
-      padding: 18px;
-      border-radius: 12px;
-      width: 140px;
-      box-shadow: 0 0 6px rgba(124, 58, 237, 0.15);
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    .callout:hover {
+      box-shadow: 0 0 24px rgba(124, 58, 237, 0.2);
     }
 
-    .icon-box:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 0 14px rgba(124, 58, 237, 0.25);
+    .callout h2 {
+      font-size: 1.4rem;
+      color: #fff;
+      margin-bottom: 14px;
     }
 
-    .icon-box img {
-      width: 100px;
-      height: 100px;
-      object-fit: contain;
-      border-radius: 10px;
-      margin-bottom: 10px;
+    .callout a {
+      display: inline-block;
+      margin-top: 10px;
+      padding: 10px 24px;
+      background-color: #7c3aed;
+      color: white;
+      text-decoration: none;
+      font-weight: 500;
+      border-radius: 8px;
+      transition: background 0.3s ease;
     }
 
-    .icon-label {
-      font-size: 0.9rem;
-      color: #eee;
+    .callout a:hover {
+      background-color: #6d28d9;
     }
 
     footer {
@@ -176,11 +178,8 @@
 </head>
 <body>
 
-  <!-- Particles Background -->
-  <div id="particles-js"></div>
-
   <!-- Navbar -->
-  <nav class="navbar">
+  <nav class="navbar fade-up">
     <img src="IMG_1096.jpeg" class="logo" alt="GrandX Logo" />
     <ul class="nav-links">
       <li><a href="index.html">Home</a></li>
@@ -190,72 +189,22 @@
     </ul>
   </nav>
 
-  <div class="container">
+  <div class="container fade-up" style="animation-delay: 0.2s;">
     <div class="brand">GrandX $tore</div>
     <div class="typewriter">We don't build mods, we build advantage</div>
     <div class="cta">
       <a href="products.html">Explore Products</a>
     </div>
+  </div>
 
-    <div class="featured-icons">
-      <div class="icon-box">
-        <img src="IMG_1271.jpeg" alt="Trigger Bot">
-        <div class="icon-label">Trigger Bot</div>
-      </div>
-      <div class="icon-box">
-        <img src="IMG_1172.jpeg" alt="1337 Cheat">
-        <div class="icon-label">1337 Cheat</div>
-      </div>
-      <div class="icon-box">
-        <img src="IMG_1273.gif" alt="Discord Bot">
-        <div class="icon-label">Discord Bot</div>
-      </div>
-      <div class="icon-box">
-        <img src="IMG_1272.jpeg" alt="BAN EVADE">
-        <div class="icon-label">BAN EVADE</div>
-      </div>
-    </div>
+  <div class="callout fade-up" style="animation-delay: 0.4s;">
+    <h2>Join our Discord for updates, support & private drops</h2>
+    <a href="https://discord.gg/Ft629G5RZE" target="_blank">Join Discord</a>
   </div>
 
   <footer>
     <p>© 2025 GrandX $tore. All rights reserved.</p>
   </footer>
 
-  <!-- Particles JS -->
-  <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
-  <script>
-    particlesJS("particles-js", {
-      particles: {
-        number: { value: 50, density: { enable: true, value_area: 800 } },
-        color: { value: "#7c3aed" },
-        shape: { type: "circle" },
-        opacity: { value: 0.3, random: true },
-        size: { value: 3, random: true },
-        line_linked: {
-          enable: true,
-          distance: 130,
-          color: "#7c3aed",
-          opacity: 0.2,
-          width: 1
-        },
-        move: {
-          enable: true,
-          speed: 1.2
-        }
-      },
-      interactivity: {
-        detect_on: "canvas",
-        events: {
-          onhover: { enable: true, mode: "grab" },
-          onclick: { enable: true, mode: "push" }
-        },
-        modes: {
-          grab: { distance: 140, line_linked: { opacity: 0.5 } },
-          push: { particles_nb: 4 }
-        }
-      },
-      retina_detect: true
-    });
-  </script>
 </body>
 </html>
