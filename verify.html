@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Verify Key - GrandX $tore</title>
+  <title>Verify Access - GrandX $tore</title>
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
@@ -21,17 +21,14 @@
   </nav>
 
   <header class="hero">
-    <h1><span class="glow-pink">Script</span> <span class="glow-white">Access</span></h1>
-    <p class="quote">Enter your access key to get your file</p>
+    <h1><span class="glow-pink">Access</span> <span class="glow-white">Key Verify</span></h1>
+    <p class="quote">Enter the unique key provided to download your product.</p>
   </header>
 
-  <section class="verify-section">
-    <div class="verify-container">
-      <input type="text" id="key" placeholder="Enter your access key" />
-      <button onclick="verifyKey()">Verify & Download</button>
-      <p id="result" class="quote"></p>
-    </div>
-    <p class="get-key">Want a Key? <a href="https://discord.gg/Ft629G5RZE" target="_blank">Open Ticket in Discord</a></p>
+  <section class="key-access">
+    <input type="text" id="accessKey" placeholder="Enter your key" />
+    <button onclick="verifyKey()">Verify & Download</button>
+    <p id="status" style="margin-top: 20px; color: #f06595;"></p>
   </section>
 
   <footer class="footer">
@@ -46,7 +43,6 @@
         <a href="products.html">Products</a>
         <a href="payment.html">Payment</a>
         <a href="tos.html">TOS</a>
-        <a href="verify.html">Verify</a>
       </div>
       <div class="footer-socials">
         <h3>Socials</h3>
@@ -58,6 +54,31 @@
   </footer>
 
   <script>
+    const scriptURL = 'https://script.google.com/macros/s/AKfycbw0el_MsSp4UZU_Xi1CU-UrnIom3cax65B7s_mYZvJqZCoEzqYtkM7zWRJ0HL0f4V2_/exec';
+
+    function verifyKey() {
+      const key = document.getElementById('accessKey').value.trim();
+      const status = document.getElementById('status');
+      status.textContent = 'Verifying...';
+
+      fetch(scriptURL, {
+        method: 'POST',
+        body: new URLSearchParams({ key })
+      })
+        .then(res => res.text())
+        .then(data => {
+          if (data.startsWith('http')) {
+            window.location.href = data;
+          } else {
+            status.textContent = data;
+          }
+        })
+        .catch(() => {
+          status.textContent = 'Error verifying key';
+        });
+    }
+
+    // Background particles animation
     const canvas = document.getElementById('particles');
     const ctx = canvas.getContext('2d');
     canvas.width = window.innerWidth;
@@ -90,37 +111,6 @@
     }
 
     animateParticles();
-
-    function verifyKey() {
-      const key = document.getElementById("key").value.trim();
-      const result = document.getElementById("result");
-
-      if (!key) {
-        result.innerText = "Please enter a key.";
-        result.style.color = "orange";
-        return;
-      }
-
-      const url = "https://script.google.com/macros/s/AKfycbw0gAHKnoE3VtPbYmcgyqWWGqu9I3H0zDGcgzOk5UvJbPjeB5XCM2-j4JQ2bK3H8vTD/exec";
-
-      fetch(`${url}?key=${key}`)
-        .then(response => response.text())
-        .then(text => {
-          if (text.startsWith("VALID:")) {
-            const link = text.split(":")[1];
-            result.innerText = "Access granted. Downloading...";
-            result.style.color = "lightgreen";
-            window.location.href = link;
-          } else {
-            result.innerText = text;
-            result.style.color = "red";
-          }
-        })
-        .catch(err => {
-          result.innerText = "Error verifying key.";
-          result.style.color = "red";
-        });
-    }
   </script>
 </body>
 </html>
