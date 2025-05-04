@@ -9,11 +9,11 @@
     html, body {
       margin: 0;
       padding: 0;
-      background: #000;
-      color: #fff;
+      background: transparent;
       font-family: 'Segoe UI', sans-serif;
       overflow-x: hidden;
       scroll-behavior: smooth;
+      color: #fff;
     }
 
     #particles-js {
@@ -23,6 +23,38 @@
       z-index: -1;
       top: 0;
       left: 0;
+    }
+
+    .navbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 12px 30px;
+      background: rgba(0, 0, 0, 0.4);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+
+    .navbar .logo {
+      height: 40px;
+    }
+
+    .nav-links {
+      display: flex;
+      list-style: none;
+      gap: 25px;
+    }
+
+    .nav-links a {
+      color: #fff;
+      text-decoration: none;
+      font-weight: 600;
+      transition: 0.3s ease;
+    }
+
+    .nav-links a:hover {
+      color: #ff00cc;
     }
 
     .hero {
@@ -36,42 +68,53 @@
       padding: 10px 25px;
       border-radius: 30px;
       font-size: 0.95rem;
-      color: #fff;
       margin-bottom: 25px;
       border: 1px solid rgba(255, 255, 255, 0.1);
-      transition: background 0.5s ease;
-    }
-
-    .customer-badge:hover {
-      background: rgba(255, 255, 255, 0.1);
     }
 
     .hero-title {
-      font-size: 2.8rem;
+      font-size: 3rem;
       font-weight: bold;
       margin-bottom: 15px;
-      background: linear-gradient(to right, #ff00ff, #00ffff, #ffffff);
+      background: linear-gradient(90deg, #ff00cc, #00fff7, #a6ff00, #ff00cc);
+      background-size: 300% 300%;
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
-      animation: glow 3s ease-in-out infinite alternate;
-      transition: all 0.8s ease;
+      animation: gradientGlow 6s ease infinite, softGlow 2s ease-in-out infinite alternate;
+      text-shadow: 0 0 12px rgba(255, 255, 255, 0.3);
+      transition: all 0.5s ease;
     }
 
-    @keyframes glow {
-      0% {
-        text-shadow: 0 0 10px #ff00ff, 0 0 20px #00ffff;
-      }
-      100% {
-        text-shadow: 0 0 30px #ffffff, 0 0 60px #ff00ff;
-      }
+    @keyframes gradientGlow {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+
+    @keyframes softGlow {
+      from { text-shadow: 0 0 10px #fff; }
+      to { text-shadow: 0 0 20px #fff; }
     }
 
     .hero-desc {
-      max-width: 520px;
+      font-size: 1.2rem;
+      color: #fff;
+      white-space: nowrap;
+      overflow: hidden;
+      border-right: 2px solid #fff;
+      width: 0;
       margin: 0 auto 30px;
-      font-size: 1.1rem;
-      color: #ccc;
-      transition: color 0.4s ease;
+      animation: typing 4s steps(40, end) forwards, blink 0.75s step-end infinite;
+      text-shadow: 0 0 8px #fff;
+    }
+
+    @keyframes typing {
+      from { width: 0; }
+      to { width: 100%; }
+    }
+
+    @keyframes blink {
+      50% { border-color: transparent; }
     }
 
     .hero-buttons {
@@ -127,7 +170,6 @@
       font-size: 0.9rem;
       color: #999;
       text-align: center;
-      transition: color 0.4s ease;
     }
   </style>
   <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
@@ -137,13 +179,25 @@
   <!-- Particles Background -->
   <div id="particles-js"></div>
 
+  <!-- Navigation -->
+  <nav class="navbar">
+    <img src="logo.png" alt="GrandX Logo" class="logo" />
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="products.html">Products</a></li>
+      <li><a href="payment.html">Payment</a></li>
+      <li><a href="tos.html">TOS</a></li>
+    </ul>
+  </nav>
+
+  <!-- Hero Section -->
   <section class="hero">
     <div class="customer-badge">
       Join over <strong>100+</strong> Customers
     </div>
 
     <h1 class="hero-title">GrandX $tore</h1>
-    <p class="hero-desc">Your tools for domination are here — cheat, control, and conquer the game like never before.</p>
+    <p class="hero-desc">We Don’t Build Mods, We Build Advantage.</p>
 
     <div class="hero-buttons">
       <a href="products.html" class="glow"><i class="fas fa-store"></i> Products</a>
@@ -151,6 +205,7 @@
     </div>
   </section>
 
+  <!-- Footer -->
   <footer>
     <p>Made by Kai</p>
   </footer>
@@ -160,20 +215,11 @@
   <script>
     particlesJS("particles-js", {
       particles: {
-        number: {
-          value: 75,
-          density: { enable: true, value_area: 800 }
-        },
+        number: { value: 75, density: { enable: true, value_area: 800 } },
         color: { value: "#ff00cc" },
         shape: { type: "circle" },
-        opacity: {
-          value: 0.6,
-          random: true
-        },
-        size: {
-          value: 2.5,
-          random: true
-        },
+        opacity: { value: 0.6, random: true },
+        size: { value: 2.5, random: true },
         line_linked: {
           enable: true,
           distance: 120,
@@ -181,10 +227,7 @@
           opacity: 0.4,
           width: 1
         },
-        move: {
-          enable: true,
-          speed: 1.2
-        }
+        move: { enable: true, speed: 1.2 }
       },
       interactivity: {
         detect_on: "canvas",
