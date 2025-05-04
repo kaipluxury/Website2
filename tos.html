@@ -4,88 +4,118 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Terms of Service - GrandX $tore</title>
-  <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
   <style>
-    .tos-container {
-      max-width: 800px;
-      margin: 40px auto;
-      background-color: #0a0a0a;
-      padding: 30px;
-      border-radius: 12px;
-      border: 1px solid rgba(255, 255, 255, 0.08);
-      box-shadow: 0 0 20px rgba(255, 0, 128, 0.1);
-      text-align: left;
-      animation: fadeIn 1s ease;
+    body {
+      margin: 0;
+      font-family: 'Inter', sans-serif;
+      background-color: #0b0b0f;
+      color: #f1f1f1;
     }
 
-    .tos-container h1 {
+    .navbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 18px 32px;
+      background-color: #0e0e14;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+    }
+
+    .logo {
+      height: 40px;
+      border-radius: 8px;
+    }
+
+    .nav-links {
+      display: flex;
+      list-style: none;
+      gap: 28px;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      color: #f1f1f1;
+      font-weight: 500;
+      font-size: 0.95rem;
+      position: relative;
+      transition: color 0.3s;
+    }
+
+    .nav-links a::after {
+      content: "";
+      position: absolute;
+      width: 0%;
+      height: 2px;
+      bottom: -4px;
+      left: 0;
+      background-color: #7c3aed;
+      transition: width 0.3s ease;
+    }
+
+    .nav-links a:hover {
+      color: #7c3aed;
+    }
+
+    .nav-links a:hover::after {
+      width: 100%;
+    }
+
+    h1 {
       text-align: center;
-      margin-bottom: 30px;
-      font-size: 2.2rem;
-      background: linear-gradient(to right, #ff0066, #a600ff);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      animation: fadeInDown 1s ease;
+      margin: 40px 0 10px;
+      font-size: 2rem;
+      color: #ffffff;
+    }
+
+    .container {
+      max-width: 800px;
+      margin: 30px auto;
+      padding: 0 20px 60px;
     }
 
     .tos-section {
-      margin-bottom: 30px;
-      opacity: 0;
-      transform: translateY(30px);
-      animation: fadeUp 1s forwards;
+      margin-bottom: 40px;
     }
 
-    .tos-section:nth-child(2) { animation-delay: 0.2s; }
-    .tos-section:nth-child(3) { animation-delay: 0.4s; }
-    .tos-section:nth-child(4) { animation-delay: 0.6s; }
-    .tos-section:nth-child(5) { animation-delay: 0.8s; }
-
     .tos-section h2 {
-      color: #ff33aa;
-      margin-bottom: 10px;
-      font-size: 1.3rem;
+      color: #7c3aed;
+      font-size: 1.2rem;
+      margin-bottom: 12px;
     }
 
     .tos-section ul {
       padding-left: 20px;
-      color: #ccc;
-      line-height: 1.6;
+    }
+
+    .tos-section ul li {
+      margin-bottom: 10px;
+      color: #ddd;
+      font-size: 0.95rem;
     }
 
     .tos-section p {
       color: #ccc;
+      font-size: 0.95rem;
       line-height: 1.6;
     }
 
-    @keyframes fadeIn {
-      from { opacity: 0; }
-      to { opacity: 1; }
-    }
-
-    @keyframes fadeInDown {
-      0% { opacity: 0; transform: translateY(-20px); }
-      100% { opacity: 1; transform: translateY(0); }
-    }
-
-    @keyframes fadeUp {
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
-    }
-
     footer {
-      margin-top: 60px;
-      font-size: 0.9rem;
-      color: #999;
       text-align: center;
+      padding: 30px;
+      font-size: 0.85rem;
+      color: #888;
     }
   </style>
 </head>
 <body>
+
   <!-- Navbar -->
   <nav class="navbar">
-    <img src="logo.png" alt="GrandX Logo" class="logo" />
+    <img src="IMG_1096.jpeg" alt="Logo" class="logo" />
     <ul class="nav-links">
       <li><a href="index.html">Home</a></li>
       <li><a href="products.html">Products</a></li>
@@ -94,49 +124,48 @@
     </ul>
   </nav>
 
-  <!-- TOS Content -->
-  <div class="tos-container">
-    <h1>Terms of Service</h1>
+  <h1>Terms of Service</h1>
 
-    <div class="tos-section">
+  <div class="container">
+    <section class="tos-section">
       <h2>🛍️ Order Info</h2>
       <ul>
-        <li>Products may be pre-ordered if out of stock.</li>
-        <li>Delivery time: 5 mins to a few hours.</li>
-        <li>In rare delays, a bonus may be offered.</li>
-        <li>Payment is required before processing.</li>
+        <li>Items may be pre-ordered if stock isn’t available.</li>
+        <li>Estimated delivery time: 5 minutes to a few hours.</li>
+        <li>If delayed, a small gift may be offered as compensation.</li>
+        <li>All payments must be made in advance.</li>
       </ul>
-    </div>
+    </section>
 
-    <div class="tos-section">
+    <section class="tos-section">
       <h2>🎫 Ticket Rules</h2>
       <ul>
-        <li>Be respectful — rudeness = ticket closed.</li>
-        <li>No spam or repeated DMs.</li>
-        <li>One ticket per issue.</li>
-        <li>Check FAQs before asking.</li>
+        <li>Be respectful — rude behavior will result in the ticket being closed.</li>
+        <li>No spamming pings or DMs — it won’t speed things up.</li>
+        <li>Open only one ticket per issue — duplicates may be closed.</li>
+        <li>Most common questions are already answered — read before asking.</li>
       </ul>
-    </div>
+    </section>
 
-    <div class="tos-section">
+    <section class="tos-section">
       <h2>💸 Refunds & Replacements</h2>
       <ul>
-        <li>No refunds for change of mind or wrong product.</li>
-        <li>Replacements only for verified issues (with proof).</li>
+        <li>No refunds for incorrect orders or change of mind.</li>
+        <li>Replacements are only offered if the fault is on our side and with clear proof.</li>
         <li>No valid proof = no replacement.</li>
       </ul>
-    </div>
+    </section>
 
-    <div class="tos-section">
+    <section class="tos-section">
       <h2>⚠️ Final Note</h2>
-      <p>By opening a ticket, you agree to these terms.</p>
-      <p>Stay chill. Follow the steps. Enjoy our service.</p>
-    </div>
+      <p>By opening a ticket or placing an order, you agree to all of the above rules.  
+      Please stay chill, follow the process, and enjoy the service.</p>
+    </section>
   </div>
 
-  <!-- Footer -->
   <footer>
-    <p>Made by Kai</p>
+    <p>© 2025 GrandX $tore. All rights reserved.</p>
   </footer>
+
 </body>
 </html>
