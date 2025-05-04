@@ -6,15 +6,15 @@
   <title>GrandX $tore</title>
   <link rel="stylesheet" href="style.css" />
   <style>
-    html, body {
+    body {
       margin: 0;
-      padding: 0;
-      background: #000;
-      font-family: 'Segoe UI', sans-serif;
-      overflow-x: hidden;
-      scroll-behavior: smooth;
+      font-family: 'Poppins', sans-serif;
+      background-color: #000;
       color: #fff;
+      overflow-x: hidden;
     }
+
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
 
     #particles-js {
       position: fixed;
@@ -23,226 +23,171 @@
       z-index: -1;
       top: 0;
       left: 0;
-      background: #000;
     }
 
-    .navbar {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: space-between;
-      align-items: center;
-      padding: 12px 20px;
-      background: rgba(0, 0, 0, 0.4);
-      position: sticky;
-      top: 0;
-      z-index: 100;
-    }
-
-    .logo-container {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-    }
-
-    .logo {
-      height: 40px;
-      border-radius: 8px;
-    }
-
-    .brand-text {
-      font-weight: bold;
-      font-size: 1rem;
-      color: #fff;
-      white-space: nowrap;
-    }
-
-    .nav-links {
-      display: flex;
-      list-style: none;
-      gap: 20px;
-      flex-wrap: wrap;
-    }
-
-    .nav-links a {
-      color: #fff;
-      text-decoration: none;
-      font-weight: 600;
-      font-size: 0.95rem;
-      transition: 0.3s ease;
-    }
-
-    .nav-links a:hover {
-      color: #ff00cc;
-    }
-
-    .hero {
-      padding: 80px 20px 60px;
+    .container {
       text-align: center;
+      padding: 60px 20px 40px;
     }
 
-    .customer-badge {
-      display: inline-block;
-      background: rgba(255, 255, 255, 0.05);
-      padding: 10px 25px;
-      border-radius: 30px;
-      font-size: 0.95rem;
-      margin-bottom: 25px;
-      border: 1px solid rgba(255, 255, 255, 0.1);
-    }
-
-    .hero-title {
-      font-size: 3rem;
+    .brand {
+      font-size: 2.5rem;
       font-weight: bold;
-      margin-bottom: 15px;
+      background: linear-gradient(90deg, #ff00cc, #6600ff);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      margin-bottom: 10px;
     }
 
-    .grandx {
-      color: #ff00cc;
-      text-shadow: 0 0 10px #ff00cc, 0 0 18px #ff00cc;
-    }
-
-    .store {
-      color: #ffffff;
-      text-shadow: 0 0 10px #ffffff, 0 0 20px #ffffff;
-    }
-
-    .hero-desc {
-      font-size: 1rem;
+    .typewriter {
+      font-size: 1.1rem;
       color: #fff;
+      margin-bottom: 20px;
       white-space: nowrap;
       overflow: hidden;
-      border-right: 2px solid #fff;
+      border-right: 2px solid #ff00cc;
       width: 0;
-      margin: 0 auto 30px;
-      animation: typing 4s steps(40, end) forwards, blink 0.75s step-end infinite;
-      text-shadow: 0 0 6px #fff;
+      animation: typing 3.5s steps(40, end) forwards, blink 0.7s infinite;
     }
 
     @keyframes typing {
-      from { width: 0; }
-      to { width: 100%; }
+      from { width: 0 }
+      to { width: 100% }
     }
 
     @keyframes blink {
-      50% { border-color: transparent; }
+      50% { border-color: transparent }
     }
 
-    .hero-buttons {
+    .trusted {
+      margin-top: 10px;
+      color: #bbb;
+      font-size: 0.95rem;
+    }
+
+    .cta {
+      margin-top: 25px;
+    }
+
+    .cta a {
+      padding: 12px 28px;
+      background: #ff00cc;
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
+      border-radius: 8px;
+      font-size: 1rem;
+      transition: background 0.3s ease, transform 0.2s ease;
+    }
+
+    .cta a:hover {
+      background: #e600b8;
+      transform: scale(1.05);
+    }
+
+    .featured-icons {
+      margin-top: 50px;
       display: flex;
       justify-content: center;
-      gap: 20px;
-      margin-top: 30px;
+      gap: 25px;
       flex-wrap: wrap;
     }
 
-    .hero-buttons a {
-      position: relative;
-      padding: 14px 28px;
-      border-radius: 50px;
-      background: #0f0f0f;
-      color: white;
-      font-weight: bold;
-      text-decoration: none;
-      font-size: 1rem;
-      border: 2px solid #ff00cc;
-      overflow: hidden;
-      z-index: 1;
-      transition: all 0.5s ease;
+    .icon-box {
+      background: #111;
+      padding: 18px;
+      border-radius: 12px;
+      width: 140px;
+      box-shadow: 0 0 8px rgba(255, 0, 204, 0.15);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
     }
 
-    .hero-buttons a:hover {
-      background: #ff00cc;
-      color: #fff;
-      transform: scale(1.08);
-      box-shadow: 0 0 18px #ff00cc;
+    .icon-box:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 0 14px rgba(255, 0, 204, 0.3);
     }
 
-    .hero-buttons a.glow::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: -100%;
-      width: 200%;
-      height: 100%;
-      background: linear-gradient(120deg, transparent, #ff00cc, transparent);
-      animation: fast-glow 1.2s linear infinite;
-      z-index: -1;
-      opacity: 0.8;
+    .icon-box img {
+      width: 100px;
+      height: 100px;
+      object-fit: contain;
+      border-radius: 10px;
+      margin-bottom: 10px;
     }
 
-    @keyframes fast-glow {
-      0% { left: -100%; }
-      100% { left: 100%; }
+    .icon-label {
+      font-size: 0.9rem;
+      color: #eee;
     }
 
     footer {
-      margin-top: 60px;
-      font-size: 0.9rem;
-      color: #999;
       text-align: center;
+      padding: 30px;
+      color: #666;
+      font-size: 0.85rem;
     }
   </style>
-  <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
 </head>
 <body>
 
   <!-- Particles Background -->
   <div id="particles-js"></div>
 
-  <!-- Navigation -->
-  <nav class="navbar">
-    <div class="logo-container">
-      <img src="IMG_1096.jpeg" alt="GrandX Logo" class="logo" />
-      <span class="brand-text">GrandX $tore</span>
-    </div>
-    <ul class="nav-links">
-      <li><a href="index.html">Home</a></li>
-      <li><a href="products.html">Products</a></li>
-      <li><a href="payment.html">Payment</a></li>
-      <li><a href="tos.html">TOS</a></li>
-    </ul>
-  </nav>
+  <div class="container">
+    <img src="IMG_1096.jpeg" alt="Logo" style="height: 80px; border-radius: 10px;" />
+    <div class="brand">GrandX $tore</div>
+    <div class="typewriter">We don't build mods, we build advantage</div>
+    <div class="trusted">Trusted by 100+ customers</div>
 
-  <!-- Hero Section -->
-  <section class="hero">
-    <div class="customer-badge">
-      Join over <strong>100+</strong> Customers
+    <div class="cta">
+      <a href="products.html">Explore Products</a>
     </div>
 
-    <h1 class="hero-title">
-      <span class="grandx">GrandX</span> <span class="store">$tore</span>
-    </h1>
-    <p class="hero-desc">We Don’t Build Mods, We Build Advantage.</p>
-
-    <div class="hero-buttons">
-      <a href="products.html" class="glow"><i class="fas fa-store"></i> Products</a>
-      <a href="https://discord.gg/Ft629G5RZE"><i class="fab fa-discord"></i> Discord</a>
+    <div class="featured-icons">
+      <div class="icon-box">
+        <img src="IMG_1271.jpeg" alt="Trigger Bot">
+        <div class="icon-label">Trigger Bot</div>
+      </div>
+      <div class="icon-box">
+        <img src="IMG_1172.jpeg" alt="1337 Cheat">
+        <div class="icon-label">1337 Cheat</div>
+      </div>
+      <div class="icon-box">
+        <img src="IMG_1273.gif" alt="Discord Bot">
+        <div class="icon-label">Discord Bot</div>
+      </div>
+      <div class="icon-box">
+        <img src="IMG_1272.jpeg" alt="BAN EVADE">
+        <div class="icon-label">BAN EVADE</div>
+      </div>
     </div>
-  </section>
+  </div>
 
-  <!-- Footer -->
   <footer>
-    <p>Made by Kai</p>
+    <p>© 2025 GrandX $tore. All rights reserved.</p>
   </footer>
 
-  <!-- Particles.js Script -->
+  <!-- Particles JS -->
   <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
   <script>
     particlesJS("particles-js", {
       particles: {
-        number: { value: 75, density: { enable: true, value_area: 800 } },
+        number: { value: 50, density: { enable: true, value_area: 800 } },
         color: { value: "#ff00cc" },
         shape: { type: "circle" },
-        opacity: { value: 0.6, random: true },
-        size: { value: 2.5, random: true },
+        opacity: { value: 0.4, random: true },
+        size: { value: 3, random: true },
         line_linked: {
           enable: true,
-          distance: 120,
+          distance: 130,
           color: "#ff00cc",
-          opacity: 0.4,
+          opacity: 0.2,
           width: 1
         },
-        move: { enable: true, speed: 1.2 }
+        move: {
+          enable: true,
+          speed: 1.2
+        }
       },
       interactivity: {
         detect_on: "canvas",
