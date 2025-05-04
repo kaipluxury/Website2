@@ -1,4 +1,3 @@
-/* Base styles */
 body {
   margin: 0;
   font-family: 'Inter', sans-serif;
@@ -7,8 +6,7 @@ body {
   overflow-x: hidden;
 }
 
-/* Particle background container */
-#particles-js {
+#particles {
   position: fixed;
   width: 100%;
   height: 100%;
@@ -17,7 +15,6 @@ body {
   left: 0;
 }
 
-/* Navigation bar */
 .navbar {
   display: flex;
   align-items: center;
@@ -30,7 +27,7 @@ body {
   z-index: 10;
 }
 
-.logo {
+.nav-logo {
   width: 40px;
   height: 40px;
   object-fit: contain;
@@ -53,7 +50,6 @@ body {
   color: #b266ff;
 }
 
-/* Hero Section */
 .hero {
   text-align: center;
   padding: 80px 20px 40px;
@@ -64,134 +60,30 @@ body {
   font-weight: 700;
 }
 
-.hero h1 .highlight {
+.glow-pink {
   color: #b266ff;
   text-shadow: 0 0 10px #b266ff;
 }
 
-.hero h1 .white-glow {
+.glow-white {
   color: white;
   text-shadow: 0 0 10px white;
 }
 
-.typewriter {
+.quote {
   font-size: 1.2rem;
   margin-top: 10px;
   color: #ddd;
   text-shadow: 0 0 6px rgba(255, 255, 255, 0.3);
 }
 
-.hero .cta {
-  margin-top: 30px;
-}
-
-.hero .cta a {
-  padding: 12px 28px;
-  background-color: #7a4dff;
-  color: #fff;
-  border-radius: 8px;
-  font-weight: bold;
-  text-decoration: none;
-  transition: background 0.3s ease;
-}
-
-.hero .cta a:hover {
-  background-color: #a176ff;
-}
-
-/* Callout section */
-.callout {
-  background-color: #161616;
+.product-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 30px;
   padding: 40px 20px;
-  text-align: center;
-  border-radius: 20px;
-  max-width: 700px;
-  margin: 40px auto;
-  box-shadow: 0 0 30px rgba(122, 77, 255, 0.2);
-}
-
-.callout h2 {
-  font-size: 1.5rem;
-  margin-bottom: 15px;
-}
-
-.callout a {
-  display: inline-block;
-  margin-top: 10px;
-  background-color: #7a4dff;
-  color: white;
-  padding: 10px 22px;
-  border-radius: 6px;
-  text-decoration: none;
-  font-weight: bold;
-  transition: background 0.3s ease;
-}
-
-.callout a:hover {
-  background-color: #a176ff;
-}
-
-/* Footer */
-footer {
-  background-color: #0b0b0b;
-  color: #aaa;
-  padding: 40px 20px 20px;
-  font-size: 0.9rem;
-}
-
-.footer-grid {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-  max-width: 1100px;
-  margin: auto;
-  gap: 40px;
-}
-
-.footer-col h3 {
-  font-size: 1.1rem;
-  margin-bottom: 15px;
-  color: #fff;
-}
-
-.footer-col ul {
-  list-style: none;
-  padding: 0;
-}
-
-.footer-col ul li {
-  margin-bottom: 8px;
-}
-
-.footer-col ul li a {
-  text-decoration: none;
-  color: #ccc;
-  transition: color 0.3s ease;
-}
-
-.footer-col ul li a:hover {
-  color: #fff;
-}
-
-.copyright {
-  text-align: center;
-  margin-top: 30px;
-  border-top: 1px solid #222;
-  padding-top: 15px;
-}
-
-/* Product Cards */
-.products-container {
-  padding: 60px 20px;
   max-width: 1200px;
   margin: auto;
-}
-
-.products-grid {
-  display: grid;
-  gap: 30px;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  margin-top: 30px;
 }
 
 .product-card {
@@ -208,15 +100,14 @@ footer {
   box-shadow: 0 0 25px rgba(122, 77, 255, 0.2);
 }
 
-.product img {
-  width: 70px;
-  height: 70px;
+.product-card img {
+  width: 100px;
+  height: 100px;
   object-fit: contain;
   margin-bottom: 15px;
-  filter: drop-shadow(0 0 8px rgba(255, 255, 255, 0.1));
 }
 
-.product-card h3 {
+.product-card h2 {
   color: #fff;
   margin-bottom: 10px;
 }
@@ -226,13 +117,7 @@ footer {
   font-size: 0.95rem;
 }
 
-.product-card .price {
-  margin: 10px 0;
-  font-weight: bold;
-  color: #fff;
-}
-
-.product-card .buy-btn {
+.btn {
   display: inline-block;
   margin-top: 10px;
   padding: 10px 22px;
@@ -244,11 +129,77 @@ footer {
   transition: background 0.3s ease;
 }
 
-.product-card .buy-btn:hover {
+.btn:hover {
   background-color: #a176ff;
 }
 
-/* Responsive */
+footer {
+  background-color: #0b0b0b;
+  color: #aaa;
+  padding: 40px 20px 20px;
+  font-size: 0.9rem;
+}
+
+.footer-content {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  max-width: 1100px;
+  margin: auto;
+  gap: 40px;
+}
+
+.footer-branding p {
+  margin: 5px 0;
+}
+
+.footer-links, .footer-socials {
+  min-width: 150px;
+}
+
+.footer-links h3, .footer-socials h3 {
+  font-size: 1.1rem;
+  margin-bottom: 15px;
+  color: #fff;
+}
+
+.footer-links a, .footer-socials a {
+  display: block;
+  text-decoration: none;
+  color: #ccc;
+  margin-bottom: 8px;
+  transition: color 0.3s ease;
+}
+
+.footer-links a:hover, .footer-socials a:hover {
+  color: #fff;
+}
+
+.discord-callout {
+  text-align: center;
+  background: #111;
+  padding: 30px 20px;
+  margin: 40px auto;
+  border-radius: 10px;
+  max-width: 500px;
+  box-shadow: 0 0 20px rgba(255, 255, 255, 0.05);
+}
+
+.discord-callout h2 {
+  margin-bottom: 10px;
+}
+
+.discord-callout p {
+  color: #ccc;
+  font-size: 1rem;
+  margin-bottom: 12px;
+}
+
+.btn.small {
+  padding: 8px 18px;
+  font-size: 0.9rem;
+}
+
 @media (max-width: 768px) {
   .hero h1 {
     font-size: 2.3rem;
