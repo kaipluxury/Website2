@@ -16,12 +16,13 @@
       <li><a href="products.html">Products</a></li>
       <li><a href="payment.html">Payment</a></li>
       <li><a href="tos.html">TOS</a></li>
+      <li><a href="verify.html">Verify</a></li>
     </ul>
   </nav>
 
   <header class="hero">
     <h1><span class="glow-pink">Payment</span> <span class="glow-white">Methods</span></h1>
-    <p class="quote">Choose your preferred method and pay securely.</p>
+    <p class="quote">Choose your method and pay securely before requesting a key.</p>
   </header>
 
   <section class="payment-section">
@@ -29,7 +30,7 @@
       <h2>UPI (India)</h2>
       <div class="copy-box">
         <input type="text" value="payishant@fam" readonly class="copy-input">
-        <button onclick="copyToClipboard(this)" class="copy-btn">Copy</button>
+        <button onclick="copyToClipboard(this)">Copy</button>
       </div>
       <img src="IMG_1256.jpeg" alt="UPI QR" class="qr">
     </div>
@@ -38,7 +39,7 @@
       <h2>USDT (TRC20)</h2>
       <div class="copy-box">
         <input type="text" value="TCgaBsn5HnsZVTsrgd4smVyqdF7pDrYLok" readonly class="copy-input">
-        <button onclick="copyToClipboard(this)" class="copy-btn">Copy</button>
+        <button onclick="copyToClipboard(this)">Copy</button>
       </div>
       <img src="E7288C9A-8C42-40A1-90DD-35A9352FCF03.png" alt="TRC20 QR" class="qr">
     </div>
@@ -47,7 +48,7 @@
       <h2>USDT (Polygon)</h2>
       <div class="copy-box">
         <input type="text" value="0x1DC2Fdd9Cc33ce107505aA81f1cb4811949ECAAF" readonly class="copy-input">
-        <button onclick="copyToClipboard(this)" class="copy-btn">Copy</button>
+        <button onclick="copyToClipboard(this)">Copy</button>
       </div>
       <img src="6D73EEB9-494E-4715-A3FC-6CA768BB0820.png" alt="Polygon QR" class="qr">
     </div>
@@ -56,14 +57,15 @@
       <h2>Litecoin (LTC)</h2>
       <div class="copy-box">
         <input type="text" value="ltc1qr354v0qe2mja3rq423g4x80m3lxwcf0vfp5mcv" readonly class="copy-input">
-        <button onclick="copyToClipboard(this)" class="copy-btn">Copy</button>
+        <button onclick="copyToClipboard(this)">Copy</button>
       </div>
       <img src="2408CF2F-80E8-4C69-A15D-814F965B3D4D.png" alt="LTC QR" class="qr">
     </div>
   </section>
 
   <section class="discord-callout">
-    <h2>After payment, open a ticket on Discord</h2>
+    <h2>After Payment</h2>
+    <p>Open a ticket on Discord to receive your unique access key.</p>
     <a href="https://discord.gg/Ft629G5RZE" target="_blank" class="btn">Open Ticket</a>
   </section>
 
@@ -79,6 +81,7 @@
         <a href="products.html">Products</a>
         <a href="payment.html">Payment</a>
         <a href="tos.html">TOS</a>
+        <a href="verify.html">Verify</a>
       </div>
       <div class="footer-socials">
         <h3>Socials</h3>
@@ -99,7 +102,6 @@
       setTimeout(() => button.textContent = "Copy", 2000);
     }
 
-    // Background particles
     const canvas = document.getElementById('particles');
     const ctx = canvas.getContext('2d');
     canvas.width = window.innerWidth;
