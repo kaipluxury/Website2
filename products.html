@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Products - GrandX $tore</title>
   <link rel="stylesheet" href="style.css" />
   <style>
@@ -11,27 +11,24 @@
       font-family: 'Segoe UI', sans-serif;
       background-color: #000;
       color: #fff;
-      overflow-x: hidden;
     }
 
     #particles-js {
       position: fixed;
       width: 100%;
       height: 100%;
+      z-index: -1;
       top: 0;
       left: 0;
-      z-index: -1;
     }
 
     .navbar {
       display: flex;
       justify-content: space-between;
       align-items: center;
-      padding: 12px 30px;
-      background: rgba(0, 0, 0, 0.4);
-      position: sticky;
-      top: 0;
-      z-index: 10;
+      padding: 16px 32px;
+      background-color: #0a0a0a;
+      border-bottom: 1px solid #222;
     }
 
     .logo-container {
@@ -46,10 +43,9 @@
     }
 
     .brand-text {
-      font-weight: bold;
-      font-size: 1rem;
+      font-weight: 600;
+      font-size: 1.1rem;
       color: #fff;
-      white-space: nowrap;
     }
 
     .nav-links {
@@ -59,11 +55,11 @@
     }
 
     .nav-links a {
-      color: #fff;
+      color: #ccc;
       text-decoration: none;
-      font-weight: 600;
+      font-weight: 500;
       font-size: 0.95rem;
-      transition: 0.3s ease;
+      transition: color 0.3s ease;
     }
 
     .nav-links a:hover {
@@ -74,96 +70,86 @@
       text-align: center;
       margin-top: 40px;
       font-size: 2rem;
-      color: #ff00cc;
-      z-index: 2;
-      position: relative;
+      color: #ffffff;
     }
 
     .products {
       display: flex;
       flex-wrap: wrap;
       justify-content: center;
-      gap: 20px;
+      gap: 24px;
       padding: 40px 20px;
-      position: relative;
       z-index: 2;
     }
 
     .product {
-      background: #000000;
+      background: #0e0e0e;
       border-radius: 12px;
-      padding: 25px 20px;
-      width: 260px;
+      padding: 24px 20px;
+      width: 250px;
       text-align: center;
-      box-shadow: 0 0 12px rgba(255, 0, 204, 0.3);
-      backdrop-filter: blur(6px);
+      box-shadow: 0 0 8px rgba(255, 0, 204, 0.15);
       transition: transform 0.3s ease, box-shadow 0.3s ease;
     }
 
     .product:hover {
-      transform: scale(1.03);
-      box-shadow: 0 0 20px rgba(255, 0, 204, 0.6);
+      transform: translateY(-4px);
+      box-shadow: 0 0 16px rgba(255, 0, 204, 0.25);
     }
 
     .product img {
-      max-width: 110px;
-      max-height: 110px;
-      margin-bottom: 14px;
-      border-radius: 12px;
+      max-width: 100px;
+      max-height: 100px;
       object-fit: contain;
-      display: block;
-      margin-left: auto;
-      margin-right: auto;
-      box-shadow: 0 0 12px rgba(255, 255, 255, 0.15);
+      margin-bottom: 12px;
+      border-radius: 10px;
     }
 
     .product h2 {
-      font-size: 1.15rem;
-      color: #fff;
+      font-size: 1.05rem;
+      color: #f3f3f3;
       margin-bottom: 8px;
     }
 
     .product p {
-      font-size: 1rem;
-      margin: 8px 0 16px;
+      font-size: 0.95rem;
       color: #aaa;
+      margin-bottom: 16px;
     }
 
     .buy-btn {
-      display: inline-block;
       padding: 10px 20px;
-      background: #ff00cc;
-      color: #fff;
+      background-color: #ff00cc;
+      color: white;
+      border: none;
+      border-radius: 6px;
+      font-weight: 600;
       text-decoration: none;
-      border-radius: 8px;
-      font-weight: bold;
-      transition: background 0.3s ease, transform 0.2s ease;
+      transition: background-color 0.3s ease;
+      display: inline-block;
     }
 
     .buy-btn:hover {
-      background: #e600b8;
-      transform: scale(1.05);
+      background-color: #e000b8;
     }
 
     footer {
       text-align: center;
-      padding: 30px;
-      font-size: 0.9rem;
-      color: #999;
-      z-index: 2;
-      position: relative;
+      padding: 24px;
+      font-size: 0.85rem;
+      color: #777;
     }
   </style>
 </head>
 <body>
 
-  <!-- Particles Background -->
+  <!-- Particle Background -->
   <div id="particles-js"></div>
 
   <!-- Navbar -->
   <nav class="navbar">
     <div class="logo-container">
-      <img src="IMG_1096.jpeg" alt="GrandX Logo" class="logo" />
+      <img src="IMG_1096.jpeg" alt="Logo" class="logo" />
       <span class="brand-text">GrandX $tore</span>
     </div>
     <ul class="nav-links">
@@ -174,74 +160,69 @@
     </ul>
   </nav>
 
-  <!-- Page Title -->
-  <h1>Our Products</h1>
+  <!-- Heading -->
+  <h1>Explore Our Products</h1>
 
-  <!-- Product Grid -->
+  <!-- Products Section -->
   <div class="products">
     <div class="product">
       <img src="IMG_1271.jpeg" alt="Trigger Bot">
       <h2>Trigger Bot (30 Days)</h2>
       <p>₹1000 / $12</p>
-      <a href="payment.html" class="buy-btn">Buy</a>
+      <a href="payment.html" class="buy-btn">Buy Now</a>
     </div>
-
     <div class="product">
       <img src="IMG_1172.jpeg" alt="1337 Cheat">
       <h2>1337 Cheat (30 Days)</h2>
       <p>₹950 / $11.5</p>
-      <a href="payment.html" class="buy-btn">Buy</a>
+      <a href="payment.html" class="buy-btn">Buy Now</a>
     </div>
-
     <div class="product">
       <img src="IMG_1273.gif" alt="Custom Discord Bot">
       <h2>Custom Discord Bot</h2>
       <p>₹400 / $5</p>
-      <a href="payment.html" class="buy-btn">Buy</a>
+      <a href="payment.html" class="buy-btn">Buy Now</a>
     </div>
-
     <div class="product">
-      <img src="IMG_1272.jpeg" alt="GrandRP BAN EVADE">
+      <img src="IMG_1272.jpeg" alt="BAN EVADE">
       <h2>GrandRP BAN EVADE</h2>
       <p>₹400 / $5</p>
-      <a href="payment.html" class="buy-btn">Buy</a>
+      <a href="payment.html" class="buy-btn">Buy Now</a>
     </div>
-
     <div class="product">
       <img src="IMG_1274.png" alt="Money Method">
       <h2>GrandRP Money Method</h2>
       <p>₹2000 / $23</p>
-      <a href="payment.html" class="buy-btn">Buy</a>
+      <a href="payment.html" class="buy-btn">Buy Now</a>
     </div>
-
     <div class="product">
       <img src="IMG_1170.png" alt="Admin Scripts">
-      <h2>Exclusive Leader/Admin Scripts</h2>
+      <h2>Leader/Admin Scripts</h2>
       <p>₹300 / $4</p>
-      <a href="payment.html" class="buy-btn">Buy</a>
+      <a href="payment.html" class="buy-btn">Buy Now</a>
     </div>
   </div>
 
   <!-- Footer -->
   <footer>
-    <p>Made by Kai</p>
+    <p>© 2025 GrandX $tore. All rights reserved.</p>
   </footer>
 
-  <!-- Particles.js -->
+  <!-- Particle JS -->
   <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
   <script>
     particlesJS("particles-js", {
       particles: {
-        number: { value: 55, density: { enable: true, value_area: 800 } },
+        number: { value: 50, density: { enable: true, value_area: 800 } },
         color: { value: "#ff00cc" },
         shape: { type: "circle" },
-        opacity: { value: 0.5, random: true },
+        opacity: { value: 0.4, random: true },
         size: { value: 3, random: true },
         line_linked: {
           enable: true,
           distance: 130,
           color: "#ff00cc",
-          opacity: 0.3,
+          opacity: 0.2,
           width: 1
         },
         move: {
