@@ -21,14 +21,15 @@
   </nav>
 
   <header class="hero">
-    <h1><span class="glow-pink">Access</span> <span class="glow-white">Key Verify</span></h1>
-    <p class="quote">Enter the unique key provided to download your product.</p>
+    <h1><span class="glow-pink">Script</span> <span class="glow-white">Access</span></h1>
+    <p class="quote">Enter your one-time access key to download your file.</p>
   </header>
 
   <section class="key-access">
     <input type="text" id="accessKey" placeholder="Enter your key" />
     <button onclick="verifyKey()">Verify & Download</button>
     <p id="status" style="margin-top: 20px; color: #f06595;"></p>
+    <p style="margin-top: 15px;">Want a key? <a href="https://discord.gg/Ft629G5RZE" target="_blank">Open Ticket in Discord</a></p>
   </section>
 
   <footer class="footer">
@@ -65,20 +66,26 @@
         method: 'POST',
         body: new URLSearchParams({ key })
       })
-        .then(res => res.text())
-        .then(data => {
-          if (data.startsWith('http')) {
+      .then(res => res.text())
+      .then(data => {
+        if (data.startsWith('http')) {
+          status.textContent = 'Success. Starting download...';
+          status.style.color = 'lightgreen';
+          setTimeout(() => {
             window.location.href = data;
-          } else {
-            status.textContent = data;
-          }
-        })
-        .catch(() => {
-          status.textContent = 'Error verifying key';
-        });
+          }, 1500);
+        } else {
+          status.textContent = data;
+          status.style.color = 'red';
+        }
+      })
+      .catch(() => {
+        status.textContent = 'Error verifying key.';
+        status.style.color = 'red';
+      });
     }
 
-    // Background particles animation
+    // Background particles
     const canvas = document.getElementById('particles');
     const ctx = canvas.getContext('2d');
     canvas.width = window.innerWidth;
