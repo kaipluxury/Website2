@@ -4,17 +4,15 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>GrandX $tore</title>
-  <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
   <style>
     body {
       margin: 0;
-      font-family: 'Poppins', sans-serif;
-      background-color: #000;
-      color: #fff;
+      font-family: 'Inter', sans-serif;
+      background-color: #0b0b0f;
+      color: #f1f1f1;
       overflow-x: hidden;
     }
-
-    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
 
     #particles-js {
       position: fixed;
@@ -25,27 +23,81 @@
       left: 0;
     }
 
+    .navbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 18px 32px;
+      background-color: #0e0e14;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+      animation: slideDown 0.6s ease;
+    }
+
+    @keyframes slideDown {
+      from { transform: translateY(-100%); opacity: 0; }
+      to { transform: translateY(0); opacity: 1; }
+    }
+
+    .logo {
+      height: 40px;
+      border-radius: 8px;
+    }
+
+    .nav-links {
+      display: flex;
+      list-style: none;
+      gap: 28px;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      color: #f1f1f1;
+      font-weight: 500;
+      font-size: 0.95rem;
+      position: relative;
+      transition: color 0.3s;
+    }
+
+    .nav-links a::after {
+      content: "";
+      position: absolute;
+      width: 0%;
+      height: 2px;
+      bottom: -4px;
+      left: 0;
+      background-color: #7c3aed;
+      transition: width 0.3s ease;
+    }
+
+    .nav-links a:hover {
+      color: #7c3aed;
+    }
+
+    .nav-links a:hover::after {
+      width: 100%;
+    }
+
     .container {
       text-align: center;
       padding: 60px 20px 40px;
     }
 
     .brand {
-      font-size: 2.5rem;
-      font-weight: bold;
-      background: linear-gradient(90deg, #ff00cc, #6600ff);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      margin-bottom: 10px;
+      font-size: 2.7rem;
+      font-weight: 600;
+      color: #f1f1f1;
+      margin-bottom: 12px;
     }
 
     .typewriter {
-      font-size: 1.1rem;
-      color: #fff;
-      margin-bottom: 20px;
+      display: inline-block;
+      border-right: 2px solid #7c3aed;
       white-space: nowrap;
       overflow: hidden;
-      border-right: 2px solid #ff00cc;
+      font-size: 1.05rem;
       width: 0;
       animation: typing 3.5s steps(40, end) forwards, blink 0.7s infinite;
     }
@@ -59,29 +111,23 @@
       50% { border-color: transparent }
     }
 
-    .trusted {
-      margin-top: 10px;
-      color: #bbb;
-      font-size: 0.95rem;
-    }
-
     .cta {
-      margin-top: 25px;
+      margin-top: 30px;
     }
 
     .cta a {
       padding: 12px 28px;
-      background: #ff00cc;
+      background-color: #7c3aed;
       color: white;
       text-decoration: none;
-      font-weight: bold;
+      font-weight: 600;
       border-radius: 8px;
       font-size: 1rem;
       transition: background 0.3s ease, transform 0.2s ease;
     }
 
     .cta a:hover {
-      background: #e600b8;
+      background-color: #6d28d9;
       transform: scale(1.05);
     }
 
@@ -94,17 +140,17 @@
     }
 
     .icon-box {
-      background: #111;
+      background: #13131a;
       padding: 18px;
       border-radius: 12px;
       width: 140px;
-      box-shadow: 0 0 8px rgba(255, 0, 204, 0.15);
+      box-shadow: 0 0 6px rgba(124, 58, 237, 0.15);
       transition: transform 0.3s ease, box-shadow 0.3s ease;
     }
 
     .icon-box:hover {
       transform: translateY(-5px);
-      box-shadow: 0 0 14px rgba(255, 0, 204, 0.3);
+      box-shadow: 0 0 14px rgba(124, 58, 237, 0.25);
     }
 
     .icon-box img {
@@ -123,7 +169,7 @@
     footer {
       text-align: center;
       padding: 30px;
-      color: #666;
+      color: #888;
       font-size: 0.85rem;
     }
   </style>
@@ -133,12 +179,20 @@
   <!-- Particles Background -->
   <div id="particles-js"></div>
 
+  <!-- Navbar -->
+  <nav class="navbar">
+    <img src="IMG_1096.jpeg" class="logo" alt="GrandX Logo" />
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="products.html">Products</a></li>
+      <li><a href="payment.html">Payment</a></li>
+      <li><a href="tos.html">TOS</a></li>
+    </ul>
+  </nav>
+
   <div class="container">
-    <img src="IMG_1096.jpeg" alt="Logo" style="height: 80px; border-radius: 10px;" />
     <div class="brand">GrandX $tore</div>
     <div class="typewriter">We don't build mods, we build advantage</div>
-    <div class="trusted">Trusted by 100+ customers</div>
-
     <div class="cta">
       <a href="products.html">Explore Products</a>
     </div>
@@ -173,14 +227,14 @@
     particlesJS("particles-js", {
       particles: {
         number: { value: 50, density: { enable: true, value_area: 800 } },
-        color: { value: "#ff00cc" },
+        color: { value: "#7c3aed" },
         shape: { type: "circle" },
-        opacity: { value: 0.4, random: true },
+        opacity: { value: 0.3, random: true },
         size: { value: 3, random: true },
         line_linked: {
           enable: true,
           distance: 130,
-          color: "#ff00cc",
+          color: "#7c3aed",
           opacity: 0.2,
           width: 1
         },
@@ -196,7 +250,7 @@
           onclick: { enable: true, mode: "push" }
         },
         modes: {
-          grab: { distance: 140, line_linked: { opacity: 0.6 } },
+          grab: { distance: 140, line_linked: { opacity: 0.5 } },
           push: { particles_nb: 4 }
         }
       },
