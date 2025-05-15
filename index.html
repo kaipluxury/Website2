@@ -3,88 +3,63 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>GrandX $tore</title>
+  <title>Dior Selling</title>
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <canvas id="particles"></canvas>
+  <canvas id="background-grid"></canvas>
 
   <nav class="navbar">
-    <img src="IMG_1096.jpeg" alt="GrandX Logo" class="nav-logo">
+    <img src="https://raw.githubusercontent.com/CodingWithCrystaL/Exchange/refs/heads/main/97BF9134-C91D-442D-8F09-74FD08C3C379.png" class="logo" alt="Dior Logo" />
     <ul class="nav-links">
-      <li><a href="index.html">Home</a></li>
-      <li><a href="products.html">Products</a></li>
-      <li><a href="payment.html">Payment</a></li>
-      <li><a href="tos.html">TOS</a></li>
+      <li><a href="#">Home</a></li>
+      <li><a href="#">Products</a></li>
+      <li><a href="#">Payment</a></li>
+      <li><a href="#">About</a></li>
     </ul>
   </nav>
 
   <header class="hero">
-    <h1><span class="glow-pink">GrandX</span> <span class="glow-white">$tore</span></h1>
-    <p class="quote">We don't build mods, we build advantage</p>
-    <a href="products.html" class="btn">Explore Products</a>
+    <h1><span class="glow">Dior</span> Selling</h1>
+    <p class="tagline">We don't sell mods, we sell advantage.</p>
+    <a href="#" class="btn">Explore Products</a>
   </header>
 
-  <section class="discord-callout">
-    <h2>Join our Discord for updates,<br>support & private drops</h2>
-    <a href="https://discord.gg/Ft629G5RZE" target="_blank" class="btn">Join Discord</a>
-  </section>
-
-  <footer class="footer">
-    <div class="footer-content">
-      <div class="footer-branding">
-        <p><strong>GrandX $tore</strong></p>
-        <p>© 2025 GrandX $tore. All rights reserved.</p>
-      </div>
-      <div class="footer-links">
-        <h3>Navigation</h3>
-        <a href="index.html">Home</a>
-        <a href="products.html">Products</a>
-        <a href="payment.html">Payment</a>
-        <a href="tos.html">TOS</a>
-      </div>
-      <div class="footer-socials">
-        <h3>Socials</h3>
-        <a href="https://discord.gg/Ft629G5RZE" target="_blank">Discord</a>
-        <a href="https://t.me/+dmVBozU2KMRjZWU1" target="_blank">Telegram</a>
-        <a href="https://www.instagram.com/grandxstore" target="_blank">Instagram</a>
-      </div>
-    </div>
-  </footer>
-
   <script>
-    const canvas = document.getElementById('particles');
-    const ctx = canvas.getContext('2d');
-    canvas.width = window.innerWidth;
-    canvas.height = window.innerHeight;
-    const particles = [];
+    const canvas = document.getElementById("background-grid");
+    const ctx = canvas.getContext("2d");
 
-    for (let i = 0; i < 100; i++) {
-      particles.push({
-        x: Math.random() * canvas.width,
-        y: Math.random() * canvas.height,
-        r: Math.random() * 1.5 + 0.5,
-        dx: Math.random() - 0.5,
-        dy: Math.random() - 0.5
-      });
+    function resizeCanvas() {
+      canvas.width = window.innerWidth;
+      canvas.height = window.innerHeight;
     }
 
-    function animateParticles() {
+    function drawGrid() {
+      const size = 60;
       ctx.clearRect(0, 0, canvas.width, canvas.height);
-      ctx.fillStyle = 'rgba(255, 255, 255, 0.2)';
-      particles.forEach(p => {
-        p.x += p.dx;
-        p.y += p.dy;
-        if (p.x < 0 || p.x > canvas.width) p.dx *= -1;
-        if (p.y < 0 || p.y > canvas.height) p.dy *= -1;
+      ctx.strokeStyle = "rgba(255,255,255,0.05)";
+      for (let x = 0; x < canvas.width; x += size) {
         ctx.beginPath();
-        ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
-        ctx.fill();
-      });
-      requestAnimationFrame(animateParticles);
+        ctx.moveTo(x, 0);
+        ctx.lineTo(x, canvas.height);
+        ctx.stroke();
+      }
+      for (let y = 0; y < canvas.height; y += size) {
+        ctx.beginPath();
+        ctx.moveTo(0, y);
+        ctx.lineTo(canvas.width, y);
+        ctx.stroke();
+      }
     }
 
-    animateParticles();
+    function animate() {
+      drawGrid();
+      requestAnimationFrame(animate);
+    }
+
+    resizeCanvas();
+    window.addEventListener("resize", resizeCanvas);
+    animate();
   </script>
 </body>
 </html>
